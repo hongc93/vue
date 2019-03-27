@@ -1,0 +1,21 @@
+
+@import "./variable.styl"
+// 背景图片
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+// 不换行,超出部分省略号
+no-wrap()
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+font-size-medium14()
+  font-size: $font-size-medium
+content-wdth()
+  width: 1200px
+  @media screen and (max-width: 1366px)
+    width: 800px
+  @media screen and (max-width: 1024px)
+    width: 780px

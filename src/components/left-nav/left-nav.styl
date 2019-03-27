@@ -1,0 +1,25 @@
+@import '~assets/stylus/variable.styl'
+.left-nav
+  background: $color-blue
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  li
+    line-height: 40px
+    font-size: $font-size-medium
+    background: $color-blue
+    color: white
+    border-bottom: 1px solid #4d8bb7
+    padding-left: 20px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    &:hover
+      cursor: pointer
+      background: #207fc3
+    &>div
+      margin-left: 5px
+    &.active
+      background: red

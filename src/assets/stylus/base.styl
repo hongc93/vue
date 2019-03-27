@@ -1,0 +1,315 @@
+@import "./variable.styl"
+@import "./mixin.styl"
+
+html,body
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif
+  font-weight: 400
+  -webkit-font-smoothing: antialiased
+html,body,#app
+  height: 100%
+  background: $color-grey
+  color: $color-black-3
+  font-size: $font-size-small
+.shadow-box
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1)
+
+.main
+  .content-wrapper
+    width: 1200px
+    margin: 0 auto
+
+
+//面包屑
+.breadcrumb
+  padding: 8px 8px 8px 0
+  background:  $color-white-1
+  overflow: hidden
+  .el-breadcrumb
+    line-height: 28px
+    float: left
+
+//表格上方 
+.table-top
+  font-size: $font-size-medium
+  color: $color-black-3
+  line-height: 32px
+  margin-bottom 10px
+  &:after
+    clear: both
+    content: ''
+    display: block
+
+//表格
+.my-ele-table
+  position: relative
+  height: 100%
+  .operation-buttons
+    text-align: left
+    .el-button--text
+      padding: 0 10px 0 5px
+      border-right: 1px solid #e7e8eb
+    .el-button--text:nth-last-child(1)
+      border-right: 0
+    .el-button--text:nth-child(1)
+      padding-left: 0
+    .el-button + .el-button
+      margin-left: 0
+  .arrows
+    position: absolute
+    // padding-left: 40px
+    z-index: 9
+    .arrow
+      font-size: 30px
+      color: rgba(204, 204, 204, 0.8)
+      position: absolute
+      cursor: pointer
+    .arrow-right
+      right: 0
+  .el-table
+    thead
+      color: $color-black-1
+      font-size-medium14()
+    th
+      background-color: $color-grey-6
+      font-size: 12px
+      .header-cell-end, .header-filter
+        padding: 0
+        margin: 0
+        line-height: unset
+        vertical-align: middle
+
+    th > .cell
+      // white-space: pre-line
+      font-weight: bold
+    .has-gutter
+      td
+        background-color: $color-white
+    .td-bold
+      background: $color-grey-4
+      .cell
+        font-weight: bold
+   .td-red
+      background: #6DDD22
+      display inline-block
+      width: 100%
+   .icon-arrow-top
+      font-size-large2()
+      .cell
+        font-weight: bold
+    .el-table--mini th, .el-table--mini td
+      padding: 4px 0
+      &.el-table-column--selection
+        border-right: 0 !important
+  .td-blue
+      background:#ff9966
+      display inline-block
+      width: 100%
+  .icon-arrow-bottom
+      font-size-large2()
+      .cell
+        font-weight: bold   
+  .td-yellow
+      background: #ff9966
+      display inline-block
+      width: 100%
+  .icon-arrow-left
+      font-size-large2()
+      .cell
+        font-weight: bold  
+  // icon
+  .el-button [class^="el-icon-"],.el-button [class^="icon-"]
+    color: #808595
+  .el-button [class*="icon-"] + span
+    margin-left: 5px
+
+
+.my-table
+  width: 100%
+  td,th
+    border: 1px solid $color-table-border
+    padding: 15px
+    font-size: 13px
+    color: $color-black-2
+    vertical-align: middle
+    line-height: 32px
+    padding: 0 5px
+  .td-grey
+    background: #fafafa
+  .td-span
+    display: inline-block
+    padding: 0 10px
+
+.table-no-border
+  td,th
+    border: 0 none
+
+
+//表单表格搜索区域
+.search-area
+  overflow: hidden
+  .search-item
+    float: left
+    display: flex
+    align-items: center
+    label
+      float: left
+      margin-right: 10px
+      font-size: 12px
+    .label-title
+      float: left
+      margin-right: 10px
+      font-size: 12px
+  .search-group
+    float: right
+    margin-bottom: 10px
+  .item-sp
+    font-size: 12px
+  .el-form-item__label
+    font-size: 12px !important
+
+.stips
+  // position: absolute
+  // border: 1px solid #ccc
+  padding: 10px 10px 6px 10px
+  box-shadow: 0
+  margin: 0
+  opacity:1
+  z-index: 999
+
+//隐藏横向滚动条
+.my-scrollbar
+  .el-scrollbar__wrap
+    overflow-x: hidden !important
+
+
+.white-box
+  width: 50%
+  box-sizing: border-box
+  float: left
+  margin-bottom: 8px
+  border: 1px solid #DDD
+  position: relative
+  .box-content
+    background: $color-white
+    overflow: hidden
+    // min-height: 50px
+    .box-title
+      line-height: 28px
+      position: relative
+      border-bottom: 1px solid $color-grey-13
+      padding: 10px 20px
+      overflow: hidden
+      height 28px
+      .title
+        line-height: 18px
+        border-left: 4px solid $color-blue-1
+        padding-left: 20px
+        font-size-medium14()
+        font-weight: bold
+        display: inline-block
+      .no-border-title
+        border-left: 0
+        padding-left: 0
+        .title-icon
+          color: $color-blue-1
+          margin-right: 10px
+      .right
+        float: right
+        text-align: right
+        // @media screen and (max-width: 1420px)
+        //   float: left
+        .right-link
+          font-size: 12px
+          color: $color-green
+      .center
+        position: absolute
+        left: 50%
+        top: 0
+        transform: translateX(-50%)
+      .left
+        display: inline-block
+    .content,.content-top, .content-bottom
+      overflow: hidden
+      // margin-top: 10px
+  .source
+    width: 100%
+    font-size: 12px
+    color: $color-grey-1
+    text-align: left
+.white-box.white-box-left
+  padding-right: 4px
+.white-box.white-box-right
+  padding-left: 4px
+.white-box.no-padding
+  padding: 0
+
+//复选框样式复写
+.el-checkbox
+  margin-right: 10px
+  .el-checkbox__label
+    padding-left: 5px !important
+.el-checkbox + .el-checkbox
+  margin-left: 0px !important
+
+// 切换动画
+@keyframes fadeUp
+  from
+    opacity: 0
+    transform: translate3d(0, 15px, 0)
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+@keyframes fadeDown
+  from
+    transform: translate3d(0, 0, 0)
+    opacity: 1
+  to
+    transform: translate3d(0, 15px, 0)
+    opacity: 0
+@keyframes fadeLeft
+  from
+    opacity: 0
+    transform: translate3d(0, 15px, 0)
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+.fade-up-enter-active
+  animation-duration: .5s
+  animation-fill-mode: both
+  animation-name: fadeUp
+
+.fade-up-leave-active
+  animation-duration: .5s
+  animation-fill-mode: both
+  animation-name: fadeDown
+
+.page-change-enter-active
+  animation-duration: .5s
+  animation-fill-mode: both
+  animation-name: fadeUp
+
+//dialog弹出框
+.dialog-right
+  // margin 0 50% !important
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+  position: absolute !important
+  bottom: 0
+  top: 0
+  right: 0
+  overflow: auto
+.el-dialog__header
+  border-bottom: 1px solid #f1f1f1
+  .dialog-title
+    color: #52596c;
+    font-size: 16px;
+    font-weight: bold;
+    i
+      margin-right: 5px
+  .el-dialog__headerbtn
+   background: #EBEEF5
+   border-radius: 50%
+   padding 5px
+   top 10px
+  
