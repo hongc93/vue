@@ -35,13 +35,16 @@
         </tree-table>
       </template>
     </white-box>
-    <div class="dialogs"></div>
+    <div class="dialogs">
+      <add-category ref="addCategory"></add-category>
+    </div>
   </div>
 </template>
 
 <script>
 const WhiteBox = () => import('@/components/white-box/white-box')
 const TreeTable = () => import('@/components/tree-table/tree-table')
+import AddCategory from './add-category-dialog/add-category-dialog'
 import { columns } from './data.js'
 import { productSeries } from '@/assets/js/config.js'
 export default {
@@ -49,6 +52,7 @@ export default {
   components: {
     WhiteBox,
     TreeTable,
+    AddCategory
   },
   data() {
     return {
@@ -67,6 +71,9 @@ export default {
     this.formatData(this.productSeries,this.tableData)
   },
   methods: {
+    openDialog(dialogName,row){
+      this.$refs[dialogName].open(row)
+    },
     // 格式化数据
     formatData(data, target, parent) {
       data.forEach((item, index) => {
@@ -82,6 +89,7 @@ export default {
 
     // 增加会员等级
     addMemberLevel(row) {
+      this.openDialog('addCategory',row)
       this.type = 'add'
       row ? this.currRow = row : this.currRow = null
       this.seriesName = ''

@@ -16,13 +16,12 @@
           placeholder="分类名称"></el-input>
       </el-form-item>
     </el-form>
-  </el-dialog>
-  </div>
-  <div slot="footer">
-    <el-button type="primary"
-      plain @click="dialogVisible = !dialogVisible">取消</el-button>
-    <el-button type="primary">确定</el-button>
-  </div>
+    <div slot="footer">
+      <el-button type="primary"
+        plain
+        @click="dialogVisible = !dialogVisible">取消</el-button>
+      <el-button type="primary">确定</el-button>
+    </div>
   </el-dialog>
 </template>
 <script>
@@ -30,8 +29,8 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      category:{
-        categoryName:''
+      category: {
+        categoryName: ''
       }
     }
   },
