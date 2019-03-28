@@ -48,6 +48,10 @@ const router = new Router({
         path: 'price-list',
         name: 'PriceList',
         component: () => import('@/view/price-list/price-list')
+      }, {
+        path: 'product-category',
+        name: 'ProductCategory',
+        component: () => import('@/view/product-category/product-category')
       }]
     }
   ]

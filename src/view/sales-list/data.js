@@ -43,12 +43,31 @@ export const tableData = {
     }
   ],
   data: [{
-    customName: '嫂子',
-    product: '丝柔纸尿裤（M）',
-    count: '3包',
-    date: '20190112',
-    price: '',
-    samllTotal: '314.5',
-    carriage: ''
-  }]
+      customName: '嫂子',
+      product: '丝柔纸尿裤（M）',
+      count: '3包',
+      date: '20190112',
+      price: '',
+      samllTotal: '314.5',
+      carriage: ''
+    },
+    {
+      customName: '嫂子',
+      product: '丝柔纸尿裤（M）',
+      count: '3包',
+      date: '20190112',
+      price: '',
+      samllTotal: '314.5',
+      carriage: ''
+    },
+    {
+      customName: '嫂子',
+      product: '丝柔纸尿裤（M）',
+      count: '3包',
+      date: '20190112',
+      price: '',
+      samllTotal: '314.5',
+      carriage: ''
+    }
+  ]
 }

@@ -16,6 +16,7 @@
       <template slot="content">
         <my-table :col="tableData.col"
           :data="tableData.data"
+          :span-method="objectSpanMethod"
           border
           stripe
           showIndex
@@ -44,9 +45,27 @@ export default {
   },
   data() {
     return {
-tableData
+      tableData
     }
   },
+  methods: {
+    objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+   
+      if (columnIndex === 0) {
+        if (rowIndex % 2 === 0) {
+          return {
+            rowspan: 2,
+            colspan: 1
+          };
+        } else {
+          return {
+            rowspan: 0,
+            colspan: 0
+          };
+        }
+      }
+    }
+  }
 }
 </script>
 

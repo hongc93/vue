@@ -6,21 +6,20 @@
  * Last Modified: 2019-03-26 5:57:07 pm
  * Author: CC
  */
-function setRandomId(menuData,parent) {
+function setRandomId(menuData, parent) {
   menuData.forEach(menu => {
-    if(parent){
+    if (parent) {
       menu.parentId = parent.id
     }
-    menu.id = new Date().getTime()+Math.random()*1e18
-    if(menu.children || menu.child){
-      setRandomId(menu.children || menu.child,menu)
+    menu.id = new Date().getTime() + Math.random() * 1e18
+    if (menu.children || menu.child) {
+      setRandomId(menu.children || menu.child, menu)
     }
   })
 }
 
 export const getMenu = () => {
-  let sliderMenu = [
-    {
+  let sliderMenu = [{
       label: '出货单',
       icon: 'icon-liebiao',
       name: 'SalesList',
@@ -48,31 +47,37 @@ export const getMenu = () => {
       label: '其他成本',
       icon: 'icon-liebiao',
       name: 'OtherCost',
-      path:'/other-cost'
+      path: '/other-cost'
     },
     {
       label: '收入',
       icon: 'icon-liebiao',
       name: 'Income',
-      path:'/income'
+      path: '/income'
     },
     {
       label: '进货单',
       icon: 'icon-liebiao',
       name: 'PurchaseList',
-      path:'/purchase-list'
+      path: '/purchase-list'
     },
     {
       label: '自用',
       icon: 'icon-liebiao',
       name: 'SelfList',
-      path:'/self-list'
+      path: '/self-list'
     },
     {
       label: '产品价目',
       icon: 'icon-liebiao',
       name: 'PriceList',
-      path:'/price-list'
+      path: '/price-list'
+    },
+    {
+      label: '产品分类',
+      icon: 'icon-liebiao',
+      name: 'ProductCategory',
+      path: '/product-category'
     }
   ]
   setRandomId(sliderMenu)

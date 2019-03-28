@@ -1,6 +1,6 @@
 /*
  * Author: CC
- * Introduction: 产品价目
+ * Introduction: 产品分类
  * File Created: 2019-03-06 4:02:57 pm
  * Last Modified By: CC
  * Last Modified: 2019-03-06 4:02:59 pm
@@ -8,12 +8,11 @@
 <template>
   <div class="price-list">
     <white-box width="100%"
-      title="产品价目">
+      title="产品分类">
       <div slot="title-right">
 
       </div>
       <template slot="content">
-        产品价目
         <div class="buttons">
           <el-button type="primary"
             icon="el-icon-plus"
@@ -36,6 +35,7 @@
         </tree-table>
       </template>
     </white-box>
+    <div class="dialogs"></div>
   </div>
 </template>
 
@@ -48,14 +48,13 @@ export default {
   name: "SelfList",
   components: {
     WhiteBox,
-    TreeTable
+    TreeTable,
   },
   data() {
     return {
       columns,
       tableData: [],
-      productSeries,
-      type: 'add',//类型：add添加，edit修改
+      productSeries,type: 'add',//类型：add添加，edit修改
       currRow: null,
       seriesName: '',
       dialog: {
@@ -65,7 +64,7 @@ export default {
     }
   },
   created() {
-    this.formatData(this.productSeries, this.tableData)
+    this.formatData(this.productSeries,this.tableData)
   },
   methods: {
     // 格式化数据
@@ -76,7 +75,7 @@ export default {
           children: []
         })
         if (item.children && item.children.length) {
-          this.formatData(item.children, target[index].children, item)
+          this.formatData(item.children,target[index].children, item)
         }
       })
     },
@@ -93,7 +92,7 @@ export default {
     editMemberLevel(row) {
       this.type = 'edit'
       this.currRow = row
-      this.seriesName = row.series
+      this.seriesName = row.memberLevel
       this.dialog.visible = true
       this.dialog.title = '修改'
     },
