@@ -8,7 +8,7 @@ export const tableData = {
     {
       label: '产品',
       prop: 'product',
-      width: '150',
+      minWidth: '150',
       align: 'left'
     },
     {

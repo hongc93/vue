@@ -51,7 +51,7 @@
       :prop="item.prop"
       :width="item.width" 
       :toggleExpanded="toggleExpanded"
-      :iconShowColProp="iconShowColProp">
+      :iconShowColProp="iconShowColProp">22222
     </my-column>
 
     <el-table-column fixed="right"

@@ -1,0 +1,30 @@
+@import '~assets/stylus/variable.styl'
+.orders
+  .product-list
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 15px
+    .basic
+      display: flex
+      width: 800px
+      align-items: flex-start
+    .thum
+      width: 120px
+      height: 120px
+      box-sizing: border-box
+      border: 1px solid $color-grey-2
+      margin-right: 15px
+      img 
+        max-width: 118px
+    .name 
+      font-size: $font-size-medium-1
+      line-height: 20px
+    .price>span 
+      color: $color-red-2 
+      font-size: $font-size-medium
+      margin-right: 15px
+    .per-unit
+      margin-left: 5px
+    .info>div
+      margin-bottom: 10px

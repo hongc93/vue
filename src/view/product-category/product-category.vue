@@ -79,6 +79,7 @@ export default {
       data.forEach((item, index) => {
         target.push({
           series: item.label,
+          specifications:item.specifications,
           children: []
         })
         if (item.children && item.children.length) {
@@ -106,16 +107,14 @@ export default {
     },
     //删除
     delMemberLevel(row, index) {
-
-      console.log(this.tableData);
+      console.log(this.tableData)
       if (row.children) {
         const childLength = row.children.length
         this.$refs.treeTable.delete(index, childLength + 1)
       } else {
         this.$refs.treeTable.delete(index, 1)
       }
-
-    },
+    }
   }
 }
 </script>

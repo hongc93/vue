@@ -5,6 +5,12 @@ export const productSeries = [{
         value: 'rouDipersBig',
         label: '丝柔亲体纸尿裤 (大包) ',
         count: '3包/箱',
+        specifications: [{
+          size: 'S',
+          range: '3-6KG',
+          amount: '60片',
+          price: '108'
+        }],
         children: [{
           value: 'S',
           label: 'S  (3-6KG)',

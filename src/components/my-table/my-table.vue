@@ -262,7 +262,7 @@ export default {
       setTimeout(() => {
         const tableWidth = this.$refs.table.$el.clientWidth
         this.$refs.arrows.style.width = tableWidth + 'px'
-      }, 301)
+      }, 101)
     },
     arrowClick(arrow) {
       const $tableWrapper = document.querySelector('.el-table__body-wrapper')

@@ -61,6 +61,7 @@ import {
   Steps,
   Step,
   Transfer,
+  InputNumber,
 } from 'element-ui'
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
 Vue.prototype.$ELEMENT = { size: 'small' }
@@ -80,6 +81,7 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Input)
+Vue.use(InputNumber)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Tooltip)

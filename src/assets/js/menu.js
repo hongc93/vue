@@ -19,7 +19,13 @@ function setRandomId(menuData, parent) {
 }
 
 export const getMenu = () => {
-  let sliderMenu = [{
+  let sliderMenu = [
+    {
+      label: '下单',
+      icon: 'icon-liebiao',
+      name: 'Orders',
+      path: '/orders'
+    }, {
       label: '出货单',
       icon: 'icon-liebiao',
       name: 'SalesList',

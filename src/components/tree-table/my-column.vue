@@ -19,7 +19,7 @@
         :render="col.render"
         :row="scope.row"
         :index="scope.$index"
-        :item="col">
+        :item="col">111{{col.render}}
       </my-render>
       <template v-else>
         <span v-for="space in scope.row._level"

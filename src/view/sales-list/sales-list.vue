@@ -11,7 +11,7 @@
       title="出货单">
       <div slot="title-right">
         <el-button type="primary"
-          size="mini">添加</el-button>
+          size="mini" @click="openDialog('addSales')">添加</el-button>
       </div>
       <template slot="content">
         <my-table :col="tableData.col"
@@ -29,19 +29,24 @@
         </my-table>
       </template>
     </white-box>
+    <div class="dialogs">
+      <add-sales ref="addSales"></add-sales>
+    </div>
   </div>
 </template>
 
 <script>
 const WhiteBox = () => import('@/components/white-box/white-box')
 const MyTable = () => import('@/components/my-table/my-table')
+import AddSales from './components/add-sale-dialog/add-sale-dialog'
 import { tableData } from './data.js'
 
 export default {
   name: "SalesList",
   components: {
     WhiteBox,
-    MyTable
+    MyTable,
+    AddSales
   },
   data() {
     return {
@@ -49,6 +54,9 @@ export default {
     }
   },
   methods: {
+    openDialog(dialogName){
+      this.$refs[dialogName].open()
+    },
     objectSpanMethod({ row, column, rowIndex, columnIndex }) {
    
       if (columnIndex === 0) {
