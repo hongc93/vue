@@ -53,6 +53,8 @@
             </div>
           </el-tab-pane>
         </el-tabs>
+        <div class="settlement"><el-button type="primary" size="samll" @click="handleSettlement">去结算</el-button></div>
+        
       </template>
     </white-box>
     <div class="dialogs">
@@ -170,6 +172,11 @@ export default {
     // 打开弹出框
     openDialog(dialogName, name, size, count) {
       this.$refs[dialogName].open(name, size, count)
+    },
+    handleSettlement(){
+      this.$router.push({
+        name:'SettlementList'
+      })
     }
   },
 }

@@ -58,6 +58,10 @@ const router = new Router({
           path: 'product-category',
           name: 'ProductCategory',
           component: () => import('@/view/product-category/product-category')
+        }, {
+          path: 'settlement-list',
+          name: 'SettlementList',
+          component: () => import('@/view/settlement-list/settlement-list')
         }
       ]
     }
