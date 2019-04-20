@@ -19,69 +19,68 @@ function setRandomId(menuData, parent) {
 }
 
 export const getMenu = () => {
-  let sliderMenu = [
-    {
+  let sliderMenu = [{
       label: '下单',
-      icon: 'icon-liebiao',
+      icon: 'icon-xiadan',
       name: 'Orders',
       path: '/orders'
     }, {
       label: '出货单',
-      icon: 'icon-liebiao',
+      icon: 'icon-chuhuo',
       name: 'SalesList',
       path: '/sales-list'
     },
     {
       label: '库存',
-      icon: 'icon-liebiao',
+      icon: 'icon-kucun',
       name: 'StockList',
       path: '/stock-list'
     },
     {
       label: '试用装邮寄',
-      icon: 'icon-liebiao',
+      icon: 'icon-shiyong',
       name: 'TryoutList',
       path: '/tryout-list'
     },
     {
       label: '客户信息',
-      icon: 'icon-liebiao',
+      icon: 'icon-kehuxinxi',
       name: 'CustomList',
       path: '/custom-list'
     },
     {
       label: '其他成本',
-      icon: 'icon-liebiao',
+      icon: 'icon-chengben',
       name: 'OtherCost',
       path: '/other-cost'
     },
     {
       label: '收入',
-      icon: 'icon-liebiao',
+      icon: 'icon-income',
       name: 'Income',
       path: '/income'
     },
     {
       label: '进货单',
-      icon: 'icon-liebiao',
+      icon: 'icon-jinhuodan',
       name: 'PurchaseList',
       path: '/purchase-list'
     },
     {
       label: '自用',
-      icon: 'icon-liebiao',
+      icon: 'icon-ziyong',
       name: 'SelfList',
       path: '/self-list'
     },
     {
       label: '产品价目',
-      icon: 'icon-liebiao',
+      icon: 'icon-jiage',
       name: 'PriceList',
       path: '/price-list'
     },
     {
       label: '产品分类',
-      icon: 'icon-liebiao',
+      icon: 'icon-fenlei',
       name: 'ProductCategory',
       path: '/product-category'
     }

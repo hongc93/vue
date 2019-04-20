@@ -7,58 +7,64 @@
  */
  <template>
   <div class="left-nav">
-    <el-menu :default-active="active"
-      :mode="mode">
- 
-        <router-link  v-for="(item,index) in menuData" :key="index" :to="item.path">
-          <el-menu-item index="index">
-            <i :class="[item.icon]"></i>
-            <span slot="title">{{item.label}}</span>
-          </el-menu-item>
-        </router-link>
-
-    </el-menu>
-    <!-- <ul>
-      <li v-for="(item,index) in leftNavs"
+    aaaaaaaaaaa {{activeIndex()}}
+    <el-menu
+      :default-active="activeIndex()"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+    >
+      <el-menu-item
+        v-for="(item,index) in menuData"
         :key="index"
-        @click.nactive="handleLinkTo(item.href)" :class="{'active':item.active}">
-        <i :class="item.icon"></i>
-        <div>{{item.label}}</div>
-      </li>
-    </ul> -->
+        :index="String(index)"
+        @click="handleLinkTo(item.name)"
+      >
+        <i :class="[item.icon]"></i>
+        <span slot="title">{{item.label}}</span>
+      </el-menu-item>
+    </el-menu>
   </div>
 </template>
  
  <script>
-import './left-nav.styl'
-import { getMenu } from '@/assets/js/menu.js'
+import "./left-nav.styl";
+import { getMenu } from "@/assets/js/menu.js";
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
-      active: '',
-      mode: 'horizontal',
-      menuData: getMenu(),
-    }
+      active: "",
+      mode: "horizontal",
+      menuData: getMenu()
+    };
   },
   methods: {
     handleLinkTo(routeName) {
       console.log(this.$route.name);
       this.$router.push({
         name: routeName
-      })
-      // for (let i = 0; i < this.leftNavs.length; i++) {
-      //   this.leftNavs[i].active = false
-      // }
-      // const nIndex = _.findIndex(this.leftNavs, item => item.href == this.$route.name)
-      // this.leftNavs[nIndex].active = true
+      });
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    activeIndex() {
+      for (let i = 0; i < this.menuData.length; i++) {
+        if (this.menuData[i].name === this.$route.name) {
+          return String(i);
+        }
+      }
     }
   }
-}
+};
 </script>
  
- <style lang="stylus" scoped>
-</style>
+<style lang="stylus"></style>
  

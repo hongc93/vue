@@ -7,23 +7,22 @@
  */
 <template>
   <div class="sales-list">
-    <white-box width="100%"
-      title="出货单">
+    <white-box width="100%" title="出货单">
       <div slot="title-right">
-        <el-button type="primary"
-          size="mini" @click="openDialog('addSales')">添加</el-button>
+        <el-button type="primary" size="mini" @click="openDialog('addSales')">添加</el-button>
       </div>
       <template slot="content">
-        <my-table :col="tableData.col"
+        <my-table
+          :col="tableData.col"
           :data="tableData.data"
           :span-method="objectSpanMethod"
           border
           stripe
           showIndex
           operation
-          operationWidth="100">
-          <div slot="operation"
-            slot-scope="scope">
+          operationWidth="100"
+        >
+          <div slot="operation" slot-scope="scope">
             <el-button type="text">修改</el-button>
           </div>
         </my-table>
@@ -36,10 +35,10 @@
 </template>
 
 <script>
-const WhiteBox = () => import('@/components/white-box/white-box')
-const MyTable = () => import('@/components/my-table/my-table')
-import AddSales from './components/add-sale-dialog/add-sale-dialog'
-import { tableData } from './data.js'
+const WhiteBox = () => import("@/components/white-box/white-box");
+const MyTable = () => import("@/components/my-table/my-table");
+import AddSales from "./components/add-sale-dialog/add-sale-dialog";
+import { tableData } from "./data.js";
 
 export default {
   name: "SalesList",
@@ -51,14 +50,13 @@ export default {
   data() {
     return {
       tableData
-    }
+    };
   },
   methods: {
-    openDialog(dialogName){
-      this.$refs[dialogName].open()
+    openDialog(dialogName) {
+      this.$refs[dialogName].open();
     },
     objectSpanMethod({ row, column, rowIndex, columnIndex }) {
-   
       if (columnIndex === 0) {
         if (rowIndex % 2 === 0) {
           return {
@@ -74,8 +72,7 @@ export default {
       }
     }
   }
-}
+};
 </script>
 
-<style lang="stylus" scoped>
-</style>
+<style lang="stylus" scoped></style>
