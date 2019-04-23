@@ -24,17 +24,12 @@ export const getMenu = () => {
       icon: 'icon-xiadan',
       name: 'Orders',
       path: '/orders'
-    }, {
-      label: '出货单',
-      icon: 'icon-chuhuo',
-      name: 'SalesList',
-      path: '/sales-list'
     },
     {
-      label: '库存',
-      icon: 'icon-kucun',
-      name: 'StockList',
-      path: '/stock-list'
+      label: '自用',
+      icon: 'icon-ziyong',
+      name: 'SelfList',
+      path: '/self-list'
     },
     {
       label: '试用装邮寄',
@@ -42,12 +37,7 @@ export const getMenu = () => {
       name: 'TryoutList',
       path: '/tryout-list'
     },
-    {
-      label: '客户信息',
-      icon: 'icon-kehuxinxi',
-      name: 'CustomList',
-      path: '/custom-list'
-    },
+
     {
       label: '其他成本',
       icon: 'icon-chengben',
@@ -55,10 +45,10 @@ export const getMenu = () => {
       path: '/other-cost'
     },
     {
-      label: '收入',
-      icon: 'icon-income',
-      name: 'Income',
-      path: '/income'
+      label: '出货单',
+      icon: 'icon-chuhuo',
+      name: 'SalesList',
+      path: '/sales-list'
     },
     {
       label: '进货单',
@@ -66,11 +56,18 @@ export const getMenu = () => {
       name: 'PurchaseList',
       path: '/purchase-list'
     },
+
     {
-      label: '自用',
-      icon: 'icon-ziyong',
-      name: 'SelfList',
-      path: '/self-list'
+      label: '库存',
+      icon: 'icon-kucun',
+      name: 'StockList',
+      path: '/stock-list'
+    },
+    {
+      label: '客户信息',
+      icon: 'icon-kehuxinxi',
+      name: 'CustomList',
+      path: '/custom-list'
     },
     {
       label: '产品价目',
@@ -83,6 +80,12 @@ export const getMenu = () => {
       icon: 'icon-fenlei',
       name: 'ProductCategory',
       path: '/product-category'
+    },
+    {
+      label: '收入',
+      icon: 'icon-income',
+      name: 'Income',
+      path: '/income'
     }
   ]
   setRandomId(sliderMenu)
