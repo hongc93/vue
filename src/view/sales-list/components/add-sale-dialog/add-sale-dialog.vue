@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       selectedOptions:[],
-      options: selectedOptions,
+      options: this.selectedOptions,
       productSeries: JSON.parse(JSON.stringify(productSeries)),
       dialogVisible: false,
       addSaleForm: {
