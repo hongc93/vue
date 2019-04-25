@@ -23,10 +23,12 @@
             <div class="count">
               号码：
               <span>{{ product.productSize }}</span>
+              单价：
+              <span>￥{{ product.productPrice }}元</span>
               数量：
-              <span>{{ product.productCount }}</span>
+              <span>{{ product.productCount }}包</span>
             </div>
-            <div>小计：{{ product.productTotal }}</div>
+            <div>小计：{{ product.productPrice*product.productCount }} 元</div>
           </div>
         </div>
       </div>
@@ -51,10 +53,11 @@ export default {
     };
   },
   methods: {
-    open(name, thum, size, count) {
+    open(name, thum,price, size, count) {
       this.product = {
         productThum: thum,
         productName: name,
+        productPrice:price,
         productSize: size,
         productCount: count
       };

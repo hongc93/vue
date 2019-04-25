@@ -65,7 +65,7 @@
               <el-button
                 type="primary"
                 icon="el-icon-plus"
-                @click="openDialog('ordersList',child.label,child.thum,child.specifications[child.specificationVal].size,child.buyCount)"
+                @click="openDialog('ordersList',child.label,child.thum,child.specifications[child.specificationVal].price,child.specifications[child.specificationVal].size,child.buyCount)"
               >添加到购物车</el-button>
             </div>
           </el-tab-pane>
@@ -190,8 +190,8 @@ export default {
       console.log(val);
     },
     // 打开弹出框
-    openDialog(dialogName, name, thum, size, count) {
-      this.$refs[dialogName].open(name, thum, size, count);
+    openDialog(dialogName, name, thum, price, size, count) {
+      this.$refs[dialogName].open(name, thum, price, size, count);
     },
     handleSettlement() {
       this.$router.push({
