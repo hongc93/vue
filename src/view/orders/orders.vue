@@ -10,7 +10,7 @@
   <div class="orders">
     <white-box width="100%" title="下单">
       <template slot="content">
-        <el-tabs v-model="activeName">
+        <el-tabs type="card" v-model="activeName">
           <el-tab-pane
             v-for="(item,index) in productAry"
             :key="index"
@@ -85,7 +85,7 @@ import "./orders.styl";
 const WhiteBox = () => import("@/components/white-box/white-box");
 const MyTable = () => import("@/components/my-table/my-table");
 import OrdersList from "./components/orders-list/orders-list";
-import { tableData } from "./data.js";
+import { productAry } from "./data.js";
 export default {
   components: {
     WhiteBox,
@@ -95,94 +95,7 @@ export default {
   data() {
     return {
       activeName: "diapers",
-      tableData,
-      productAry: [
-        {
-          label: "纸尿裤系列",
-          name: "diapers",
-          perUnit: "包",
-          children: [
-            {
-              value: "rouDipersBig",
-              label: "丝柔亲体纸尿裤 (大包) ",
-              thum: require("@/assets/img/no-thum.png"),
-              specificationVal: 0,
-              buyCount: 0,
-              total: "",
-              specifications: [
-                {
-                  size: "S",
-                  range: "3-6KG",
-                  amount: "60片",
-                  price: 108,
-                  count: "3包/箱"
-                },
-                {
-                  size: "M",
-                  range: "5-11KG",
-                  amount: "50片",
-                  price: 108,
-                  count: "3包/箱"
-                },
-                {
-                  size: "L",
-                  range: "(9-13KG)",
-                  amount: "46片",
-                  price: 108,
-                  count: "3包/箱"
-                },
-                {
-                  size: "XL",
-                  range: "12KG以上",
-                  amount: "42片",
-                  price: 108,
-                  count: "3包/箱"
-                }
-              ]
-            },
-            {
-              value: "rouDipersSmall",
-              label: "丝柔亲体纸尿裤 (小包) ",
-              thum: require("@/assets/img/no-thum.png"),
-              specificationVal: 0,
-              buyCount: 0,
-              total: "",
-              specifications: [
-                {
-                  size: "NB",
-                  range: "4KG以下",
-                  amount: "40片",
-                  price: 58,
-                  count: "6包/箱"
-                },
-                {
-                  size: "S",
-                  range: "3-6KG",
-                  amount: "30片",
-                  price: 58,
-                  count: "6包/箱"
-                }
-              ]
-            }
-          ]
-        }
-        // {
-        //   label: '卫生巾系列',
-        //   name: 'tampon',
-        //   children: [
-        //     {
-        //       value: 'pyjamas',
-        //       label: '舒心安睡裤 ',
-        //       count: '3包/箱'
-        //     },
-        //     {
-        //       value: 'Butterfly',
-        //       label: '蝶影卫生巾 ',
-        //       count: '3包/箱'
-        //     }
-        //   ]
-        // }
-      ]
+      productAry
     };
   },
   methods: {

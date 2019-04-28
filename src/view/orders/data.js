@@ -1,50 +1,11 @@
-export const tableData = {
-  col: [
-    {
-      prop: 'basic',
-      label: '基本信息',
-      render: (h, params) => {
-        return (
-          <div>
-            <div class="thum">
-              <img src={params.row.basic.thum} />
-            </div>
-            <div class="info">
-              <div class="name">
-                <span>名称：</span>
-                {params.row.basic.label}
-              </div>
-              <div class="price">
-                价格：
-                <span>
-                  ￥ {
-                    params.row.basic.specifications[
-                      params.row.basic.specificationVal
-                    ].price
-                  }
-                  元/{params.row.basic.perUnit}
-                </span>{' '}
-                容量：
-                <span>
-                  {
-                    params.row.basic.specifications[child.specificationVal]
-                      .count
-                  }
-                </span>
-              </div>
-            </div>
-          </div>
-        )
-      }
-    },
-    {
-      prop: 'subtotal',
-      label: '小计'
-    }
-  ],
-  data: [
-    {
-      basic: {
+export const productAry = [
+  {
+    label: '纸尿裤系列',
+    name: 'diapers',
+    perUnit: '包',
+    children: [
+      {
+        value: 'rouDipersBig',
         label: '丝柔亲体纸尿裤 (大包) ',
         thum: require('@/assets/img/no-thum.png'),
         specificationVal: 0,
@@ -81,7 +42,69 @@ export const tableData = {
           }
         ]
       },
-      subtotal: 0
-    }
-  ]
-}
+      {
+        value: 'rouDipersSmall',
+        label: '丝柔亲体纸尿裤 (小包) ',
+        thum: require('@/assets/img/no-thum.png'),
+        specificationVal: 0,
+        buyCount: 0,
+        total: '',
+        specifications: [
+          {
+            size: 'NB',
+            range: '4KG以下',
+            amount: '40片',
+            price: 58,
+            count: '6包/箱'
+          },
+          {
+            size: 'S',
+            range: '3-6KG',
+            amount: '30片',
+            price: 58,
+            count: '6包/箱'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: '卫生巾系列',
+    name: 'tampon',
+    perUnit: '包',
+    children: [
+      {
+        value: 'pyjamas',
+        label: '舒心安睡裤 ',
+        thum: require('@/assets/img/no-thum.png'),
+        specificationVal: 0,
+        buyCount: 0,
+        total: '',
+        specifications: [
+          {
+            size: 'S-M',
+            amount: '2片/包',
+            price: 18,
+            count: '30包/箱'
+          }
+        ]
+      },
+      {
+        value: 'Butterfly',
+        label: '蝶影卫生巾 ',
+        thum: require('@/assets/img/no-thum.png'),
+        specificationVal: 0,
+        buyCount: 0,
+        total: '',
+        specifications: [
+          {
+            size: '日用 240mm',
+            amount: '8片/包',
+            price: 18,
+            count: '24盒/箱'
+          }
+        ]
+      }
+    ]
+  }
+]

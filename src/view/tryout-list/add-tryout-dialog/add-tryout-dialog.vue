@@ -9,6 +9,7 @@
  <template>
   <el-dialog append-to-body
     :visible.sync="dialogVisible"
+    custom-class="add-tryout"
     title="添加试用装邮寄名单">
     <div class="content">
       <el-form :model="addForm"
@@ -20,9 +21,9 @@
           <el-input placeholder="请输入姓名"
             v-model="addForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="发货日期"
+        <el-form-item  label="发货日期"
           prop="sendDate">
-          <el-date-picker type="date"
+          <el-date-picker style="width：100%" type="date"
             placeholder="请选择发货日期"
             v-model="addForm.sendDate"></el-date-picker>
         </el-form-item>
@@ -41,10 +42,28 @@
           <el-input placeholder="请输入地址"
             v-model="addForm.address"></el-input>
         </el-form-item>
-        <el-form-item label="货品"
-          prop="product">
-          <el-input placeholder="请输入货品"
-            v-model="addForm.product"></el-input>
+        <el-form-item label="货品">
+          <el-cascader style="width: auto"
+            :options="productOptions"
+            v-model="addForm.product">
+          </el-cascader>
+          <span style="margin-left: 5px">其他</span><el-input style="width: auto"
+            v-model="addForm.productRemarks"></el-input>
+        </el-form-item>
+        <el-form-item label="快递"
+          prop="expressFee">
+          <el-select  placeholder="请输入快递"
+            v-model="addForm.express">
+            <el-option v-for="item in expressOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="快递费"
+          prop="expressFee">
+          <el-input placeholder="请输入快递费"
+            v-model="addForm.expressFee"></el-input>
         </el-form-item>
         <el-form-item label="宝出生日期"
           prop="birthday">
@@ -94,6 +113,10 @@ export default {
         mobile: '',
         wechat: '',
         address: '',
+        product: [],
+        productRemarks: '',
+        express: '',
+        expressFee: '',
         birthday: '',
         sex: 3,
         knowWay: '',
@@ -133,6 +156,32 @@ export default {
           label: '其他',
           value: '4'
         }
+      ],
+      productOptions: [{
+        value: 'zhinan',
+        label: '指南',
+        children: [{
+          value: 'shejiyuanze',
+          label: '设计原则',
+          children: [{
+            value: 'yizhi',
+            label: '一致'
+          }]
+        }]
+      }],
+      expressOptions:[
+        {
+          label:'品骏',
+          value:'1'
+        },
+        {
+          label:'中通',
+          value:'2'
+        },
+        {
+          label:'百世',
+          value:'3'
+        }
       ]
     }
   },
@@ -154,7 +203,7 @@ export default {
           this.$message(
             {
               type: 'success',
-              message:'添加成功'
+              message: '添加成功'
             }
           )
         } else {
@@ -165,3 +214,8 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+.add-tryout
+  .el-select,.el-input
+    width: 100%
+</style>
