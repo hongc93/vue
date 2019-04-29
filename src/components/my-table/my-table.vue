@@ -41,13 +41,13 @@
       :header-align="headerAlign"
       @selection-change="selectionChange">
       <el-table-column type="selection"
-        v-if="selection"  width="30">
+        v-if="selection"  width="36">
       </el-table-column>
       <el-table-column label="序号"
         type="index"
         :index="indexMethod"
-        align="left"
-        v-if='showIndex'  width="45">
+        align="center"
+        v-if='showIndex'  width="55">
       </el-table-column>
       <my-column v-for="(item,index) in col"
         :col="item"

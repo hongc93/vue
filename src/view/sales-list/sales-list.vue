@@ -9,17 +9,14 @@
   <div class="sales-list">
     <white-box width="100%"
       title="出货单">
-      <div slot="title-right">
-        <el-button type="primary"
-          size="mini"
-          @click="openDialog('addSales')">添加</el-button>
-      </div>
+  
       <template slot="content">
         <my-table :col="tableData.col"
           :data="tableData.data"
           border
           stripe
           showIndex
+          selection
           operation
           operationWidth="100">
           <div slot="operation"
@@ -77,25 +74,21 @@ export default {
           {
             label: '客户名',
             prop: 'customName',
-            width: '120',
             align: 'center'
           },
           {
             label: '日期',
             prop: 'date',
-            width: '120',
             align: 'center'
           },
           {
             label: '总价',
             prop: 'samllTotal',
-            width: '120',
             align: 'right'
           },
           {
             label: '运费',
             prop: 'carriage',
-            width: '120',
             align: 'right'
           }
         ],
@@ -130,21 +123,6 @@ export default {
     },
     handleDel(scope) {
       console.log('删除');
-    },
-    objectSpanMethod({ row, column, rowIndex, columnIndex }) {
-      if (columnIndex === 0) {
-        if (rowIndex % 2 === 0) {
-          return {
-            rowspan: 2,
-            colspan: 1
-          };
-        } else {
-          return {
-            rowspan: 0,
-            colspan: 0
-          };
-        }
-      }
     }
   }
 };

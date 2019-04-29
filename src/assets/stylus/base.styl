@@ -71,7 +71,7 @@ html,body,#app
       font-size-medium14()
     th
       background-color: $color-grey-6
-      font-size: 12px
+      font-size: 14px
       .header-cell-end, .header-filter
         padding: 0
         margin: 0
@@ -81,6 +81,8 @@ html,body,#app
     th > .cell
       // white-space: pre-line
       font-weight: bold
+    td,td .el-button--text 
+      font-size: 14px
     .has-gutter
       td
         background-color: $color-white
@@ -98,8 +100,6 @@ html,body,#app
         font-weight: bold
     .el-table--mini th, .el-table--mini td
       padding: 4px 0
-      &.el-table-column--selection
-        border-right: 0 !important
   .td-blue
       background:#ff9966
       display inline-block
@@ -197,14 +197,14 @@ html,body,#app
       line-height: 28px
       position: relative
       border-bottom: 1px solid $color-grey-13
-      padding: 10px 20px
+      padding: 15px 20px 0
       overflow: hidden
       height 28px
       .title
         line-height: 18px
         border-left: 4px solid $color-blue-1
         padding-left: 20px
-        font-size-medium14()
+        font-size: 16px
         font-weight: bold
         display: inline-block
       .no-border-title
@@ -312,7 +312,11 @@ html,body,#app
    border-radius: 50%
    padding 5px
    top 10px
-
+// 菜单
+.el-menu
+  border-right: 0 !important
+  .el-menu-item i
+    color: #dedfe0
 //商品缩略图
 .product-bisic
   display: flex

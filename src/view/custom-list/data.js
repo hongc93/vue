@@ -9,24 +9,24 @@ export const tableData = {
       label: '电话',
       prop: 'tel',
       align: 'center',
-      width: '100px'
+      width: '120px'
     },
     {
       label: '地址',
       prop: 'address',
       align: 'left',
-      minWidth: '200px'
+      minWidth: '320px'
     },
     {
       label: '收费标准',
       prop: 'level',
       align: 'left',
-      width: '120px'
+      width: '150px'
     },
     {
       label: '宝宝出生日期',
       prop: 'childBrith',
-      align: 'left',
+      align: 'center',
       width: '140px',
       sortable: true
     },
@@ -40,7 +40,7 @@ export const tableData = {
       label: '认识途径',
       prop: 'methods',
       align: 'center',
-      width: '100px'
+      width: '120px'
     }
   ],
   data: [{

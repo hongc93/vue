@@ -51,7 +51,7 @@
       :prop="item.prop"
       :width="item.width" 
       :toggleExpanded="toggleExpanded"
-      :iconShowColProp="iconShowColProp">22222
+      :iconShowColProp="iconShowColProp">
     </my-column>
 
     <el-table-column fixed="right"
@@ -184,7 +184,7 @@ export default {
 }
 </style>
 
-<style scoped>
+<style lang="stylus" scoped>
 .ms-tree-space {
   position: relative;
   top: 1px;

@@ -37,7 +37,7 @@
                   <div>
                     <span>规格：</span>
                     <el-radio-group size="mini" v-model="child.specificationVal">
-                      <el-radio-button
+                      <el-radio-button 
                         v-for="(s,i) in child.specifications"
                         :key="i"
                         :label="i"

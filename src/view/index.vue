@@ -46,16 +46,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.index-page {
+.index-page 
   position: absolute;
   padding: 0;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.aside {
-  background: #545c64;
-}
+.aside 
+  background: #545c64
+  border-right: solid 1px #e6e6e6
+  box-sizing: border-box
 </style>

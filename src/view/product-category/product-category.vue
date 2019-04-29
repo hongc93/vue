@@ -19,6 +19,8 @@
             @click="addMemberLevel(null)">增加系列</el-button>
         </div>
         <tree-table ref="treeTable"
+          :elTable="false"
+          iconShowColProp="series"
           :columns="columns"
           :data="tableData"
           operation
@@ -107,7 +109,6 @@ export default {
     },
     //删除
     delMemberLevel(row, index) {
-      console.log(this.tableData)
       if (row.children) {
         const childLength = row.children.length
         this.$refs.treeTable.delete(index, childLength + 1)

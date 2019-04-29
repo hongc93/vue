@@ -10,7 +10,8 @@
   <el-dialog append-to-body
     :visible.sync="dialogVisible"
     custom-class="add-tryout"
-    title="添加试用装邮寄名单">
+    title="添加试用装邮寄名单"
+    width="650px">
     <div class="content">
       <el-form :model="addForm"
         :rules="addRules"
@@ -21,9 +22,10 @@
           <el-input placeholder="请输入姓名"
             v-model="addForm.name"></el-input>
         </el-form-item>
-        <el-form-item  label="发货日期"
+        <el-form-item label="发货日期"
           prop="sendDate">
-          <el-date-picker style="width：100%" type="date"
+          <el-date-picker style="width：100%"
+            type="date"
             placeholder="请选择发货日期"
             v-model="addForm.sendDate"></el-date-picker>
         </el-form-item>
@@ -42,17 +44,26 @@
           <el-input placeholder="请输入地址"
             v-model="addForm.address"></el-input>
         </el-form-item>
-        <el-form-item label="货品">
+        <el-form-item v-for="(item,index) in addForm.product"
+          :key="index"
+          :label="'货品'+(index+1)">
           <el-cascader style="width: auto"
             :options="productOptions"
-            v-model="addForm.product">
-          </el-cascader>
-          <span style="margin-left: 5px">其他</span><el-input style="width: auto"
-            v-model="addForm.productRemarks"></el-input>
+            v-model="item.productName">
+          </el-cascader> 数量：<el-input placeholder="1"
+            style="width: 80px"
+            v-model="item.productCount"></el-input>
+          <el-button type="text"
+            @click="addGoods">添加</el-button>
+        </el-form-item>
+        <el-form-item label="其他货品">
+          <el-input style="width: auto"
+            v-model="addForm.otherProduct"></el-input>
+          <el-button type="text">添加</el-button>
         </el-form-item>
         <el-form-item label="快递"
           prop="expressFee">
-          <el-select  placeholder="请输入快递"
+          <el-select placeholder="请输入快递"
             v-model="addForm.express">
             <el-option v-for="item in expressOptions"
               :key="item.value"
@@ -113,8 +124,14 @@ export default {
         mobile: '',
         wechat: '',
         address: '',
-        product: [],
-        productRemarks: '',
+        product: [
+          {
+            productName: [],
+            productCount: '',
+          }
+        ],
+
+        otherProduct: '',
         express: '',
         expressFee: '',
         birthday: '',
@@ -169,18 +186,18 @@ export default {
           }]
         }]
       }],
-      expressOptions:[
+      expressOptions: [
         {
-          label:'品骏',
-          value:'1'
+          label: '品骏',
+          value: '1'
         },
         {
-          label:'中通',
-          value:'2'
+          label: '中通',
+          value: '2'
         },
         {
-          label:'百世',
-          value:'3'
+          label: '百世',
+          value: '3'
         }
       ]
     }
@@ -211,11 +228,29 @@ export default {
         }
       })
     },
+    // 添加货品
+    addGoods() {
+      let clickCount = 0
+      this.addForm.product.forEach(item => {
+        if (item.productName.length !== 0) {
+          this.addForm.product.push(
+            {
+              productName: [],
+              count: 0,
+              keyId: Date.now()
+            }
+          )
+        } else {
+          this.$message.error('请选择此商品名称后，方能追加！')
+        }
+      })
+
+    }
   }
 }
 </script>
 <style lang="stylus">
 .add-tryout
-  .el-select,.el-input
+  .el-select, .el-input
     width: 100%
 </style>

@@ -19,12 +19,12 @@
         :render="col.render"
         :row="scope.row"
         :index="scope.$index"
-        :item="col">111{{col.render}}
+        :item="col">{{col.render}}
       </my-render>
       <template v-else>
         <span v-for="space in scope.row._level"
-        :key="space"
-         v-if="col.prop==iconShowColProp"
+          :key="space"
+          v-if="col.prop==iconShowColProp"
           class="ms-tree-space" />
         <span class="tree-ctrl"
           v-if="iconShow(scope.row)&&col.prop==iconShowColProp"
@@ -98,7 +98,7 @@ export default {
   height: 14px;
 }
 .ms-tree-space::before {
-  content: '';
+  content: "";
 }
 .processContainer {
   width: 100%;
