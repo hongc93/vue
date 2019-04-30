@@ -69,12 +69,7 @@ export const getMenu = () => {
       name: 'CustomList',
       path: '/custom-list'
     },
-    {
-      label: '产品价目',
-      icon: 'icon-jiage',
-      name: 'PriceList',
-      path: '/price-list'
-    },
+  
     {
       label: '产品分类',
       icon: 'icon-fenlei',

@@ -84,7 +84,8 @@ export const productSeries = [{
           label: 'XL  (12KG以上)',
           specifications: '42片'
         }]
-      }, {
+      }, 
+      {
         value: 'baoDipersSmall',
         label: '丝薄亲体纸尿裤 (小包) ',
         count: '6包/箱',
@@ -93,7 +94,8 @@ export const productSeries = [{
           label: 'NB （4KG以下）',
           specifications: '40片'
         }]
-      }, {
+      }, 
+      {
         value: 'baoSlacks',
         label: '丝薄透气训练裤',
         count: '4包/箱',
@@ -403,7 +405,7 @@ export const productSeries = [{
             specifications: '20抽'
           },
           {
-            value: 'replenishment',
+            value: 'cottonWipesBig',
             label: '婴儿全棉手口柔湿巾（大）(80抽)',
             count: '6 包/箱',
             specifications: '80抽'

@@ -22,7 +22,8 @@
       <el-button type="primary"
         plain
         @click="dialogVisible = !dialogVisible">取消</el-button>
-      <el-button type="primary" >确定</el-button>
+      <el-button type="primary"
+        @click="submitAdd">确定</el-button>
     </div>
   </el-dialog>
 </template>
@@ -39,6 +40,11 @@ export default {
   methods: {
     open() {
       this.dialogVisible = true
+    },
+    // 增加一级系列名称
+    submitAdd() {
+      this.$emit('addSeries',this.category)
+      this.dialogVisible = !this.dialogVisible
     }
   }
 }

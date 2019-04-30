@@ -6,7 +6,7 @@
  * Last Modified: 2019-03-06 4:02:59 pm
  */
 <template>
-  <div class="price-list">
+  <div class="product-category">
     <white-box width="100%"
       title="产品分类">
       <div slot="title-right">
@@ -14,9 +14,13 @@
       </div>
       <template slot="content">
         <div class="buttons">
-          <el-button type="primary"
-            icon="el-icon-plus"
-            @click="addMemberLevel(null)">增加系列</el-button>
+          <div class="fr">
+            <el-button type="primary"
+              icon="el-icon-plus"
+              @click="addMemberLevel(null)">增加系列</el-button>
+            <el-button type="primary"
+              icon="icon-shezhi" @click="openDialog('setThead')">设置表头</el-button>
+          </div>
         </div>
         <tree-table ref="treeTable"
           :elTable="false"
@@ -31,22 +35,25 @@
               @click="addMemberLevel(scope.row)">添加子等级</el-button>
             <el-button type="text"
               @click="editMemberLevel(scope.row)">修改</el-button>
-            <el-button type="text"
-              @click="delMemberLevel(scope.row,scope.index)">删除</el-button>
           </template>
         </tree-table>
       </template>
     </white-box>
     <div class="dialogs">
-      <add-category ref="addCategory"></add-category>
+      <add-category @addSeries="addSeries"
+        ref="addCategory"></add-category>
+      <set-thead 
+        ref="setThead" :col-option="columns"></set-thead>
     </div>
   </div>
 </template>
 
 <script>
+import './product-category.stylus'
 const WhiteBox = () => import('@/components/white-box/white-box')
 const TreeTable = () => import('@/components/tree-table/tree-table')
-import AddCategory from './add-category-dialog/add-category-dialog'
+import AddCategory from './components/add-category-dialog/add-category-dialog'
+import SetThead from './components/set-thead-dialog/set-thead-dialog'
 import { columns } from './data.js'
 import { productSeries } from '@/assets/js/config.js'
 export default {
@@ -54,13 +61,15 @@ export default {
   components: {
     WhiteBox,
     TreeTable,
-    AddCategory
+    AddCategory,
+    SetThead
   },
   data() {
     return {
       columns,
       tableData: [],
-      productSeries,type: 'add',//类型：add添加，edit修改
+      productSeries,
+      type: 'add',//类型：add添加，edit修改
       currRow: null,
       seriesName: '',
       dialog: {
@@ -70,10 +79,11 @@ export default {
     }
   },
   created() {
-    this.formatData(this.productSeries,this.tableData)
+    this.formatData(this.productSeries, this.tableData)
+    console.log(this.tableData);
   },
   methods: {
-    openDialog(dialogName,row){
+    openDialog(dialogName, row) {
       this.$refs[dialogName].open(row)
     },
     // 格式化数据
@@ -81,18 +91,24 @@ export default {
       data.forEach((item, index) => {
         target.push({
           series: item.label,
-          specifications:item.specifications,
+          specifications: item.specifications,
+          retailPrice: item.retailPrice,
+          chiefPrice: item.chiefPrice,
+          rosePrice: item.rosePrice,
+          beginPrice: item.beginPrice,
+          vipPrice: item.vipPrice,
+          memberPrice: item.memberPrice,
           children: []
         })
         if (item.children && item.children.length) {
-          this.formatData(item.children,target[index].children, item)
+          this.formatData(item.children, target[index].children, item)
         }
       })
     },
 
     // 增加会员等级
     addMemberLevel(row) {
-      this.openDialog('addCategory',row)
+      this.openDialog('addCategory', row)
       this.type = 'add'
       row ? this.currRow = row : this.currRow = null
       this.seriesName = ''
@@ -115,10 +131,17 @@ export default {
       } else {
         this.$refs.treeTable.delete(index, 1)
       }
+    },
+    addSeries(seriesData) {
+      this.tableData.push(
+        {
+          series: seriesData.categoryName,
+          specifications: [],
+        }
+      )
+      console.log(seriesData);
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-</style>

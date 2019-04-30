@@ -1,0 +1,11 @@
+.product-category
+  .specifications
+    span 
+      display: inline-block
+    .size
+      margin-right: 8px
+      min-width: 24px
+    .range
+      width: 60px
+    .amount
+      min-width: 40px

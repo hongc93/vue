@@ -60,11 +60,6 @@ const router = new Router({
           component: () => import('@/view/self-list/self-list')
         },
         {
-          path: 'price-list',
-          name: 'PriceList',
-          component: () => import('@/view/price-list/price-list')
-        },
-        {
           path: 'product-category',
           name: 'ProductCategory',
           component: () => import('@/view/product-category/product-category')
