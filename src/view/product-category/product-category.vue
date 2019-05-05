@@ -9,9 +9,6 @@
   <div class="product-category">
     <white-box width="100%"
       title="产品分类">
-      <div slot="title-right">
-
-      </div>
       <template slot="content">
         <div class="buttons">
           <div class="fr">
@@ -19,13 +16,14 @@
               icon="el-icon-plus"
               @click="addMemberLevel(null)">增加系列</el-button>
             <el-button type="primary"
-              icon="icon-shezhi" @click="openDialog('setThead')">设置表头</el-button>
+              icon="icon-shezhi"
+              @click="openDialog('setThead')">设置表头</el-button>
           </div>
         </div>
         <tree-table ref="treeTable"
           :elTable="false"
           iconShowColProp="series"
-          :columns="columns"
+          :columns="tableCol"
           :data="tableData"
           operation
           operationWidth="300">
@@ -35,6 +33,8 @@
               @click="addMemberLevel(scope.row)">添加子等级</el-button>
             <el-button type="text"
               @click="editMemberLevel(scope.row)">修改</el-button>
+            <el-button type="text"
+              @click="openDialog('specificationsStock',scope.row)">规格及库存</el-button>
           </template>
         </tree-table>
       </template>
@@ -42,8 +42,10 @@
     <div class="dialogs">
       <add-category @addSeries="addSeries"
         ref="addCategory"></add-category>
-      <set-thead 
-        ref="setThead" :col-option="columns"></set-thead>
+      <set-thead ref="setThead"
+        :col-option="columns"
+        v-model="transferRightVal"></set-thead>
+      <specifications-stock ref="specificationsStock"></specifications-stock>
     </div>
   </div>
 </template>
@@ -54,6 +56,7 @@ const WhiteBox = () => import('@/components/white-box/white-box')
 const TreeTable = () => import('@/components/tree-table/tree-table')
 import AddCategory from './components/add-category-dialog/add-category-dialog'
 import SetThead from './components/set-thead-dialog/set-thead-dialog'
+import SpecificationsStock from './components/specifications-stock-dialog/specifications-stock-dialog'
 import { columns } from './data.js'
 import { productSeries } from '@/assets/js/config.js'
 export default {
@@ -62,25 +65,27 @@ export default {
     WhiteBox,
     TreeTable,
     AddCategory,
-    SetThead
+    SetThead,
+    SpecificationsStock
   },
   data() {
     return {
-      columns,
+      columns, // 表头初始值
       tableData: [],
       productSeries,
-      type: 'add',//类型：add添加，edit修改
+      type: 'add', // 类型：add添加，edit修改
       currRow: null,
       seriesName: '',
       dialog: {
         title: '',
         visible: false
-      }
+      },
+      tableCol: _.cloneDeep(columns),//拷贝表头初始值
+      transferRightVal: []
     }
   },
   created() {
     this.formatData(this.productSeries, this.tableData)
-    console.log(this.tableData);
   },
   methods: {
     openDialog(dialogName, row) {
@@ -106,6 +111,17 @@ export default {
       })
     },
 
+    //格式化表头
+    formatThead() {
+      let tempTableCol = _.cloneDeep(this.columns)
+      this.transferRightVal.forEach(item => {
+        const i = _.findIndex(tempTableCol, option => option.key === item)
+        if (i > -1) {
+          tempTableCol.splice(i, 1)
+        }
+      })
+      this.tableCol = tempTableCol
+    },
     // 增加会员等级
     addMemberLevel(row) {
       this.openDialog('addCategory', row)
@@ -141,6 +157,14 @@ export default {
       )
       console.log(seriesData);
     }
+  },
+  watch: {
+    transferRightVal(newVal) {
+      this.formatThead()
+    },
+    tableCol(newVal) {
+      this.tableCol = newVal
+    },
   }
 }
 </script>

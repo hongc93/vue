@@ -20,22 +20,26 @@ export const productSeries = [
                  {
                    size: 'S',
                    range: '3-6KG',
-                   amount: '60片'
+                   amount: '60片',
+                   stocks: '8'
                  },
                  {
                    size: 'M',
                    range: '5-11KG',
-                   amount: '50片'
+                   amount: '50片',
+                   stocks: '4'
                  },
                  {
                    size: 'L',
                    range: '9-13KG',
-                   amount: '46片'
+                   amount: '46片',
+                   stocks: '6'
                  },
                  {
                    size: 'XL',
                    range: '9-13KG',
-                   amount: '42片'
+                   amount: '42片',
+                   stocks: '2'
                  }
                ]
              },
