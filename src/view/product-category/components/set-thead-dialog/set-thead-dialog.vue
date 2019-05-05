@@ -11,10 +11,8 @@
     :visible.sync="dialogVisible"
     custom-class="set-thead"
     title="设置表头">
-
     <div class="content">
-      {{colOption}}
-      <el-transfer :titles="['隐藏字段','显示字段']"
+      <el-transfer :titles="['显示字段','隐藏字段']"
         v-model="selectedCol"
         :data="colOption"
         :format="{
@@ -40,7 +38,7 @@
       <el-button type="primary"
         plain
         @click="dialogVisible = !dialogVisible">取消</el-button>
-      <el-button type="primary">确定</el-button>
+      <el-button type="primary" @click="setCol">确定</el-button>
     </div>
   </el-dialog>
 </template>
@@ -54,7 +52,7 @@ export default {
       rightVal: [],
       selectedCol: [],
       rightSelect: [],
-      childTest: []
+      childTest: [],
     }
   },
   props: {
