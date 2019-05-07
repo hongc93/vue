@@ -1,4 +1,7 @@
 .product-category
+  .buttons
+    margin-bottom: 10px
+    overflow: hidden
   .specifications
     span 
       display: inline-block

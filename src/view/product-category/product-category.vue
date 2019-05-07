@@ -30,11 +30,13 @@
           <template slot="operation"
             slot-scope="scope">
             <el-button type="text"
-              @click="addMemberLevel(scope.row)">添加子等级</el-button>
+              v-if="!scope.row.parent"
+              @click="openDialog('addProduct',scope.row)">添加产品</el-button>
+            <el-button type="text"
+              v-if="scope.row.parent"
+              @click="openDialog('specificationsStock',scope.row)">规格及库存</el-button>
             <el-button type="text"
               @click="editMemberLevel(scope.row)">修改</el-button>
-            <el-button type="text"
-              @click="openDialog('specificationsStock',scope.row)">规格及库存</el-button>
           </template>
         </tree-table>
       </template>
@@ -42,6 +44,8 @@
     <div class="dialogs">
       <add-category @addSeries="addSeries"
         ref="addCategory"></add-category>
+      <add-product @addProduct="addProduct"
+        ref="addProduct"></add-product>
       <set-thead ref="setThead"
         :col-option="columns"
         v-model="transferRightVal"></set-thead>
@@ -55,6 +59,7 @@ import './product-category.stylus'
 const WhiteBox = () => import('@/components/white-box/white-box')
 const TreeTable = () => import('@/components/tree-table/tree-table')
 import AddCategory from './components/add-category-dialog/add-category-dialog'
+import AddProduct from './components/add-product-dialog/add-product-dialog'
 import SetThead from './components/set-thead-dialog/set-thead-dialog'
 import SpecificationsStock from './components/specifications-stock-dialog/specifications-stock-dialog'
 import { columns } from './data.js'
@@ -65,6 +70,7 @@ export default {
     WhiteBox,
     TreeTable,
     AddCategory,
+    AddProduct,
     SetThead,
     SpecificationsStock
   },
@@ -153,9 +159,13 @@ export default {
         {
           series: seriesData.categoryName,
           specifications: [],
+          children: []
         }
       )
-      console.log(seriesData);
+    },
+    // 添加产品
+    addProduct(productData){
+      console.log(productData);
     }
   },
   watch: {

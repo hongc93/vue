@@ -55,7 +55,7 @@ export default {
         },
         {
           prop: 'stocks',
-          label: '库存',
+          label: '库存(包)',
           align: 'center'
         }
       ],
