@@ -58,7 +58,7 @@
         v-if="operation"
         :label="operationLabel?operationLabel:'操作'"
         fixed="right"
-        align="left"
+        :align="operationAlign"
         :width="operationWidth">
         <template slot-scope="scope">
           <slot name="operation"
@@ -137,6 +137,11 @@ export default {
     //操作列宽度
     operationWidth: {
       type: String
+    },
+    //操作列对齐方式
+    operationAlign: {
+      type: String,
+      default:'left'
     },
     //是否显示合计
     showSummary: {

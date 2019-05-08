@@ -16,7 +16,7 @@
         border
         stripe
         :span-method="objectSpanMethod"></my-table>
-      <div class="statistics">数量：<span class="red">{{totalCount}}</span> 合计：<span class="red">{{totalMoney}}</span></div>
+      <div class="statistics">数量：<span class="red">{{totalCount}} 件</span> 合计：<span class="red">{{totalMoney}} 元</span></div>
     </div>
     <div slot="footer"
       class="dialog-footer">

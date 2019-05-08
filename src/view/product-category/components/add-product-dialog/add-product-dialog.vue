@@ -9,17 +9,17 @@
 <template>
   <el-dialog append-to-body
     :visible.sync="dialogVisible"
-    title="添加产品">
+    title="添加产品" custom-class="add-product">
     <el-form ref="productForm"
       :model="productForm"
       :rules="productRules"
-      label-width="120px">
-      <el-form-item label="产品名称"
+      label-width="100px">
+      <el-form-item label="产品名称："
         prop="productName">
         <el-input v-model="productForm.productName"
           placeholder="请输入产品名称"></el-input>
       </el-form-item>
-      <el-form-item label="产品参数"
+      <el-form-item label="产品参数："
         prop="productParams">
         <el-checkbox-group @change="handleChange"
           v-model="productForm.productParams">
@@ -34,6 +34,7 @@
         <el-button type="text"
           @click="confirmAddParams">确定</el-button>
       </el-form-item>
+      <div class="tip-info" v-if="productForm.productParamsObj.length!==0">注意：如果多个值用逗号隔开，例如 (S,M,L)</div>
       <el-form-item v-for="(item,index) in productForm.productParamsObj"
         :label="item.label"
         :key="index">
@@ -80,9 +81,9 @@ export default {
     },
     // 增加产品
     submitAdd() {
-      this.dialogVisible = !this.dialogVisible
       this.$refs.productForm.validate((valid) => {
         if (valid) {
+          this.dialogVisible = !this.dialogVisible
           this.$emit('addProduct', this.productForm)
         } else {
           console.log('error submit!');
@@ -103,7 +104,7 @@ export default {
       this.productForm.addParams = ''
       this.handleChange(this.productForm.productParams)
     },
-    
+
     // 产品参数改变
     handleChange(value) {
       this.productForm.productParamsObj = []
@@ -125,3 +126,11 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+@import '~assets/stylus/variable.styl'
+.add-product
+  .tip-info
+    padding-left: 100px
+    padding-bottom: 10px
+    color: #ed4014
+</style>

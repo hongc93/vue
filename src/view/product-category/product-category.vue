@@ -10,17 +10,44 @@
     <white-box width="100%"
       title="产品分类">
       <template slot="content">
-        <div class="buttons">
-          <div class="fr">
-            <el-button type="primary"
-              icon="el-icon-plus"
-              @click="addMemberLevel(null)">增加系列</el-button>
-            <el-button type="primary"
-              icon="icon-shezhi"
-              @click="openDialog('setThead')">设置表头</el-button>
+
+        <el-tabs v-model="activeName"
+          type="border-card">
+          <div class="buttons">
+            <div class="fr">
+              <el-button type="primary"
+                icon="el-icon-plus"
+                @click="openDialog('addCategory')">增加产品分类</el-button>
+              <el-button type="primary"
+                icon="el-icon-plus"  size="mini"
+                @click="openDialog('addProduct',activeName)">增加产品</el-button>
+              <el-button type="primary" size="mini"
+                icon="icon-shezhi"
+                @click="openDialog('setThead')">设置表头</el-button>
+            </div>
           </div>
-        </div>
-        <tree-table ref="treeTable"
+          <el-tab-pane v-for="(item,index) in tableData"
+            :key="index"
+            :label="item.series"
+            :name="item.value">
+            <my-table :col="tableCol"
+              :data="tableData[index].children"
+              stripe
+              operation
+              operationAlign="center"
+              operationWidth="200">
+              <template slot="operation"
+                slot-scope="scope">
+                <el-button type="text"
+                  @click="openDialog('specificationsStock',scope.row)">规格及库存</el-button>
+                <el-button type="text"
+                  @click="editMemberLevel(scope.row)">修改</el-button>
+              </template>
+            </my-table>
+          </el-tab-pane>
+        </el-tabs>
+
+        <!-- <tree-table ref="treeTable"
           :elTable="false"
           iconShowColProp="series"
           :columns="tableCol"
@@ -38,17 +65,22 @@
             <el-button type="text"
               @click="editMemberLevel(scope.row)">修改</el-button>
           </template>
-        </tree-table>
+        </tree-table> -->
       </template>
     </white-box>
     <div class="dialogs">
+      <!-- 添加分类 -->
       <add-category @addSeries="addSeries"
         ref="addCategory"></add-category>
+      <!-- 添加产品 -->
       <add-product @addProduct="addProduct"
         ref="addProduct"></add-product>
+      <!-- 设置表头 -->
       <set-thead ref="setThead"
         :col-option="columns"
-        v-model="transferRightVal"></set-thead>
+        v-model="transferRightVal">
+      </set-thead>
+      <!-- 规格及库存 -->
       <specifications-stock ref="specificationsStock"></specifications-stock>
     </div>
   </div>
@@ -58,6 +90,7 @@
 import './product-category.stylus'
 const WhiteBox = () => import('@/components/white-box/white-box')
 const TreeTable = () => import('@/components/tree-table/tree-table')
+const MyTable = () => import('@/components/my-table/my-table')
 import AddCategory from './components/add-category-dialog/add-category-dialog'
 import AddProduct from './components/add-product-dialog/add-product-dialog'
 import SetThead from './components/set-thead-dialog/set-thead-dialog'
@@ -69,6 +102,7 @@ export default {
   components: {
     WhiteBox,
     TreeTable,
+    MyTable,
     AddCategory,
     AddProduct,
     SetThead,
@@ -87,7 +121,8 @@ export default {
         visible: false
       },
       tableCol: _.cloneDeep(columns),//拷贝表头初始值
-      transferRightVal: []
+      transferRightVal: [],
+      activeName: 'diapers'
     }
   },
   created() {
@@ -102,8 +137,11 @@ export default {
       data.forEach((item, index) => {
         target.push({
           series: item.label,
+          value: item.value,
           specifications: item.specifications,
+          boxCapacity: item.boxCapacity,
           retailPrice: item.retailPrice,
+          distributionPrice: item.distributionPrice,
           chiefPrice: item.chiefPrice,
           rosePrice: item.rosePrice,
           beginPrice: item.beginPrice,
@@ -129,14 +167,11 @@ export default {
       this.tableCol = tempTableCol
     },
     // 增加会员等级
-    addMemberLevel(row) {
-      this.openDialog('addCategory', row)
-      this.type = 'add'
-      row ? this.currRow = row : this.currRow = null
-      this.seriesName = ''
-      this.dialog.visible = true
-      this.dialog.title = '添加会员等级'
-    },
+    // addMemberLevel(row) {
+    //   this.openDialog('addCategory', row)
+    //   this.seriesName = ''
+    //   this.dialog.visible = true
+    // },
     //编辑
     editMemberLevel(row) {
       this.type = 'edit'
@@ -162,9 +197,12 @@ export default {
           children: []
         }
       )
+      console.log(this.tableData);
+      console.log(this.productSeries);
+
     },
     // 添加产品
-    addProduct(productData){
+    addProduct(productData) {
       console.log(productData);
     }
   },

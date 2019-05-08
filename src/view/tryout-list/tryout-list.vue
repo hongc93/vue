@@ -12,6 +12,7 @@
       <div slot="title-right">
         <el-button type="primary"
           size="mini"
+          icon="el-icon-plus"
           @click="openDialog('addTryout')">添加</el-button>
       </div>
       <template slot="content">
@@ -60,5 +61,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-</style>
+<style lang="stylus" scoped></style>

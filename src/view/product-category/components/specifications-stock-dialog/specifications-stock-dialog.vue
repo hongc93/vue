@@ -40,7 +40,7 @@ export default {
       tableCol: [
         {
           prop: 'size',
-          label: '规格',
+          label: '号码',
           align: 'center'
         },
         {
@@ -50,7 +50,7 @@ export default {
         },
         {
           prop: 'amount',
-          label: '容量(片/包)',
+          label: '包容量(/包)',
           align: 'center'
         },
         {

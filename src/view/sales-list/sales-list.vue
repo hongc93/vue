@@ -9,7 +9,7 @@
   <div class="sales-list">
     <white-box width="100%"
       title="出货单">
-  
+
       <template slot="content">
         <my-table :col="tableData.col"
           :data="tableData.data"
@@ -18,13 +18,13 @@
           showIndex
           selection
           operation
-          operationWidth="100">
+          operationWidth="100"
+          operationAlign="center">
           <div slot="operation"
             slot-scope="scope">
             <el-button type="text"
               @click="openDialog('saleDetail')">详情</el-button>
-            <el-button type="text"
-              @click="handleDel">删除</el-button>
+
           </div>
         </my-table>
       </template>
