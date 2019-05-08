@@ -23,8 +23,8 @@
             slot-scope="scope">
             <el-button type="text"
               @click="openDialog('saleDetail')">详情</el-button>
-            <el-button type="text"
-              @click="handleDel">删除</el-button>
+            <!-- <el-button type="text"
+              @click="handleDel">删除</el-button> -->
           </div>
         </my-table>
       </template>
