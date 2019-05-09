@@ -7,7 +7,6 @@
  */
  <template>
   <div class="left-nav">
-    aaaaaaaaaaa {{activeIndex()}}
     <el-menu
       :default-active="activeIndex()"
       class="el-menu-vertical-demo"

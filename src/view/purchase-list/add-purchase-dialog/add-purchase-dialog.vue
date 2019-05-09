@@ -52,7 +52,6 @@
       <el-button type="primary"
         @click="submitForm">确定</el-button>
     </div>
-
   </el-dialog>
 </template>
 <script>
