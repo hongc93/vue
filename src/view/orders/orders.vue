@@ -10,6 +10,7 @@
   <div class="orders">
     <white-box width="100%" title="下单">
       <template slot="content">
+        <div class="member">会员选择：</div>
         <el-tabs type="card" v-model="activeName">
           <el-tab-pane
             v-for="(item,index) in productAry"
@@ -37,7 +38,7 @@
                   <div>
                     <span>规格：</span>
                     <el-radio-group size="mini" v-model="child.specificationVal">
-                      <el-radio-button 
+                      <el-radio-button
                         v-for="(s,i) in child.specifications"
                         :key="i"
                         :label="i"

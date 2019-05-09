@@ -24,7 +24,12 @@
             slot-scope="scope">
             <el-button type="text"
               @click="openDialog('saleDetail')">详情</el-button>
+<<<<<<< HEAD
 
+=======
+            <!-- <el-button type="text"
+              @click="handleDel">删除</el-button> -->
+>>>>>>> abbdbf7e33d9a71a3cd0134095dc28cb515f8f90
           </div>
         </my-table>
       </template>
