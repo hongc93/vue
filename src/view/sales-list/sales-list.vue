@@ -7,9 +7,23 @@
  */
 <template>
   <div class="sales-list">
-    <white-box width="100%"
-      title="出货单">
-
+    <top-search :searchData="searchData.searchData"
+      :searchSelect="searchData.searchSelect"
+      labelWidth="100px">
+      <template slot="date-right">
+        <el-date-picker v-model="saleDate" size="mini"
+          type="daterange"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          range-separator="至"></el-date-picker>
+      </template>
+      <template slot="customName-right">
+        <el-select v-model="customName">
+          <el-option label="张威" value="zhangwei"></el-option>
+        </el-select>
+      </template>
+    </top-search>
+    <white-box width="100%">
       <template slot="content">
         <my-table :col="tableData.col"
           :data="tableData.data"
@@ -24,12 +38,6 @@
             slot-scope="scope">
             <el-button type="text"
               @click="openDialog('saleDetail')">详情</el-button>
-<<<<<<< HEAD
-
-=======
-            <!-- <el-button type="text"
-              @click="handleDel">删除</el-button> -->
->>>>>>> abbdbf7e33d9a71a3cd0134095dc28cb515f8f90
           </div>
         </my-table>
       </template>
@@ -44,20 +52,22 @@
 <script>
 const WhiteBox = () => import("@/components/white-box/white-box");
 const MyTable = () => import("@/components/my-table/my-table");
+import TopSearch from '@/components/top-search-area/top-search-area'
 import AddSales from "./components/add-sale-dialog/add-sale-dialog";
 import SaleDetail from "./components/sale-detail-dialog/sale-detail-dialog";
-// import { tableData } from "./data.js";
-
+import { searchData } from './data.js'
 export default {
   name: "SalesList",
   components: {
     WhiteBox,
     MyTable,
     AddSales,
-    SaleDetail
+    SaleDetail,
+    TopSearch
   },
   data() {
     return {
+      searchData,
       tableData: {
         col: [
           {
@@ -119,7 +129,9 @@ export default {
             carriage: ''
           }
         ]
-      }
+      },
+      saleDate:'',
+      customName:''
     };
   },
   methods: {

@@ -1,0 +1,92 @@
+@import('~assets/stylus/variable.styl')
+.top-search-area
+  background: $color-white
+  position relative
+  padding: 20px
+  margin-bottom: 28px
+  .el-form-item 
+    border: 1px solid  #dddde1
+    border-top: 0
+    margin-bottom: 0
+  .el-form-item--small .el-form-item__label
+    line-height: 46px
+  .el-form-item--small .el-form-item__content
+    border-left: 1px solid  #dddde1
+  .search-item
+    position: relative
+    border-top: 1px solid  #dddde1
+    border-bottom: 0
+    .search-item-right
+      display inline-block
+      font-size: 12px
+    .item-select
+      line-height: 18px
+      padding-left: 10px
+      padding-top: 10px
+      padding-bottom: 10px
+      font-size: 0
+      margin-right: 20px
+      .select-span
+        display: inline-block
+        line-height: 24px
+        font-size: 12px
+        margin-right: 10px
+        padding: 0 10px
+        cursor: pointer
+        border-radius: 3px
+        transition: all .3s
+        border:1px solid transparent
+        color #737990
+      .active
+        border: 1px solid $color-orange
+        color: $color-orange
+    .defined
+      display: inline-block
+      color: $color-green-3
+      font-size: $font-size-small
+      padding-left:7px
+      padding-right: 7px
+      height: 24px
+      border: 1px solid $color-grey-2
+      text-align: center
+      border-radius: 5px
+      line-height: 26px
+      &:hover
+        cursor: pointer
+    .search-btn-item,.search-btn-item .el-form-item__content
+      border: 0
+      margin-left: 0 !important
+      margin-top: 5px
+  .search-btn-item .el-form-item__content
+    text-align: center
+    
+
+  .toggle-show
+    position: absolute
+    bottom: -17px
+    left: 50%
+    font-size: 12px
+    line-height: 18px
+    background-color: $color-white
+    color: #C5C8CE
+    cursor: pointer
+    &:before
+      content: ''
+      width:0
+      height:0
+      font-size:0
+      border-right:9px solid $color-white
+      border-bottom:18px dashed transparent
+      position: absolute
+      top:0
+      left: -9px
+    &:after
+      content: ''
+      width:0
+      height:0
+      font-size:0
+      border-left:9px solid $color-white
+      border-bottom:18px dashed transparent
+      position: absolute
+      top:0
+      right: -9px
