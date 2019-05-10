@@ -1,0 +1,73 @@
+@import '~assets/stylus/variable.styl'
+.member-select
+  padding: 0
+  .popover-content
+    display: flex
+  .left,.right
+    width: 50%
+  .top-search
+    .el-input__inner
+      border: 0
+      border-right: 1px solid #dddddd
+      border-radius: 0
+  .top
+    border-bottom: 1px solid #dddddd
+    .title
+      height: 32px
+      line-height: 32px
+      padding:0 15px
+  .tabs
+    border-right: 1px solid #dddddd
+    .el-tabs__nav
+      border-top: 0
+  .tab-pane
+    padding: 0 15px
+  .staff-list
+    margin-right: 50px
+    height 340px
+    .letter
+      font-size: 14px
+      position: relative
+      &:after
+        content: ''
+        height 1px 
+        background: #dddddd
+        position absolute
+        top: 50%
+        left: 20px
+        right: 0
+        transform: translateY(-50%)
+  .letter-list
+    font-size: 12px
+    color: #7484a4
+    width: 40px
+    height: 340px
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    position: absolute
+    right: 0
+    top: 0
+    li  
+      padding: 5px
+      cursor: pointer
+      &.active
+        color: #3aa7a9
+  .popover-footer
+    border-top: 1px solid #dddddd
+    padding: 10px 15px
+    margin-top: 0
+    text-align: right 
+    // display: flex
+    // justify-content: space-between
+    .el-checkbox
+      margin-top: 6px
+      float: left
+  .member-list
+    display: flex
+    li 
+      width: 50% 
+  
+  
+
+  

@@ -37,8 +37,8 @@
 </template>
 
 <script>
-const WhiteBox = () => import('@/components/white-box/white-box')
-const MyTable = () => import('@/components/my-table/my-table')
+const WhiteBox = () => import('@/components/common/white-box/white-box')
+const MyTable = () => import('@/components/common/my-table/my-table')
 import AddTryout from './add-tryout-dialog/add-tryout-dialog'
 import { tableData } from './data.js'
 export default {

@@ -84,7 +84,7 @@
 
 <script>
 import MyColumn from './my-column'
-import Paging from '@/components/paging/paging'
+import Paging from '@/components/common/paging/paging'
 import { off, on, getElementTop } from '@/utils/dom.js'
 import { throttle } from 'lodash/function'
 export default {

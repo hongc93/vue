@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import MyIcon from '@/components/my-icon/my-icon.vue'
+import MyIcon from '@/components/common/my-icon/my-icon.vue'
 import './assets/stylus/index.styl'
 import './assets/js/element-import-config.js'
 import VueProgressBar from 'vue-progressbar'

@@ -26,12 +26,19 @@
           </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="产品：" prop="product">
+        <el-form-item label="产品："
+          prop="product">
           <el-cascader :options="productSeries"
             v-model="addProductForm.product">
           </el-cascader>
         </el-form-item>
-
+        <el-form-item label="规格："
+          prop="specifications">
+          <el-select v-model="addProductForm.specifications">
+            <el-option label="NB" value="NB"></el-option>
+            <el-option label="S" value="S"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="数量：">
           <el-input-number :min="1"
             v-model="addProductForm.count"></el-input-number>
@@ -64,11 +71,15 @@ export default {
       addProductForm: {
         saleDate: new Date(),
         product: [],
-        count: ''
+        count: '',
+        specifications:''
       },
       addProductRules: {
         product: [
           { required: true, message: '请选择产品', trigger: 'blur' },
+        ],
+        specifications: [
+          { required: true, message: '请选择产品规格', trigger: 'blur' },
         ]
       },
     }

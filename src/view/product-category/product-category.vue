@@ -88,9 +88,9 @@
 
 <script>
 import './product-category.stylus'
-const WhiteBox = () => import('@/components/white-box/white-box')
-const TreeTable = () => import('@/components/tree-table/tree-table')
-const MyTable = () => import('@/components/my-table/my-table')
+const WhiteBox = () => import('@/components/common/white-box/white-box')
+const TreeTable = () => import('@/components/common/tree-table/tree-table')
+const MyTable = () => import('@/components/common/my-table/my-table')
 import AddCategory from './components/add-category-dialog/add-category-dialog'
 import AddProduct from './components/add-product-dialog/add-product-dialog'
 import SetThead from './components/set-thead-dialog/set-thead-dialog'

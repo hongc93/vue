@@ -41,7 +41,7 @@
 </template>
 <script>
 import "./orders-list.styl";
-const MyTable = () => import("@/components/my-table/my-table");
+const MyTable = () => import("@/components/common/my-table/my-table");
 export default {
   components: {
     MyTable

@@ -49,6 +49,12 @@ export const tableData = {
       align: 'right'
     },
     {
+      label: '收费',
+      prop: 'income',
+      width: '100',
+      align: 'right'
+    },
+    {
       label: '宝性别',
       prop: 'sex',
       width: '100',
@@ -72,6 +78,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190113',
       expressCost: '8',
+      income: '9.9',
       sex: '男',
       brithday: ''
     },
@@ -92,6 +99,7 @@ export const tableData = {
       mobile: '18635405567',
       date: '20190227',
       expressCost: '8',
+      income: '9.9',
       product: '试用装',
       otherProduct: '',
       sex: '',
@@ -105,6 +113,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190305',
       expressCost: '8',
+      income: '9.9',
       sex: '',
       brithday: ''
     },
@@ -116,6 +125,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190308',
       expressCost: '8',
+      income: '9.9',
       sex: '',
       brithday: ''
     },
@@ -127,6 +137,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190313',
       expressCost: '8',
+      income: '9.9',
       sex: '',
       brithday: ''
     },
@@ -139,6 +150,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190315',
       expressCost: '8',
+      income: '9.9',
       sex: '',
       brithday: ''
     },
@@ -150,6 +162,7 @@ export const tableData = {
       otherProduct: '',
       date: '20190315',
       expressCost: '8',
+      income: '9.9',
       sex: '',
       brithday: ''
     }

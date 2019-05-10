@@ -8,19 +8,35 @@
  */
 <template>
   <div class="orders">
-    <white-box width="100%" title="下单">
+    <white-box width="100%"
+      title="下单">
       <template slot="content">
-        <div class="member">会员选择：</div>
-        <el-tabs type="card" v-model="activeName">
-          <el-tab-pane
-            v-for="(item,index) in productAry"
+        <div class="member">
+         
+            <!-- <span style="width: 60px; display:inline-block">会员选择：</span> -->
+            <el-radio-group v-model="whetherMember">
+              <!-- <el-radio-button label="member"></el-radio-button> -->
+              <el-radio-button label="registMember">注册会员</el-radio-button>
+              <el-radio-button label="notMember">非会员</el-radio-button>
+            </el-radio-group>
+            <member-select @confirm="ConfrimMember"></member-select>
+         
+          <div class="member-info">
+            <div>姓名：<span class="red">张威</span>级别：<span class="red">一级</span>电话：<span class="red">13552075715</span></div>
+          </div>
+        </div>
+
+        <el-tabs type="card"
+          v-model="activeName">
+          <el-tab-pane v-for="(item,index) in productAry"
             :key="index"
             :label="item.label"
-            :name="item.name"
-          >
+            :name="item.name">
             <!-- <my-table :col="tableData.col"
             :data="tableData.data"></my-table>-->
-            <div class="product-list" v-for="(child,index) in item.children" :key="index">
+            <div class="product-list"
+              v-for="(child,index) in item.children"
+              :key="index">
               <div class="basic">
                 <div class="thum">
                   <img :src="child.thum">
@@ -37,23 +53,20 @@
                   </div>
                   <div>
                     <span>规格：</span>
-                    <el-radio-group size="mini" v-model="child.specificationVal">
-                      <el-radio-button
-                        v-for="(s,i) in child.specifications"
+                    <el-radio-group size="mini"
+                      v-model="child.specificationVal">
+                      <el-radio-button v-for="(s,i) in child.specifications"
                         :key="i"
-                        :label="i"
-                      >{{s.size}} {{s.amount}}</el-radio-button>
+                        :label="i">{{s.size}} {{s.amount}}</el-radio-button>
                     </el-radio-group>
                   </div>
                   <div></div>
                   <div>
                     <span>数量：</span>
-                    <el-input-number
-                      size="mini"
+                    <el-input-number size="mini"
                       v-model="child.buyCount"
                       @change="handleChange"
-                      :min="1"
-                    ></el-input-number>
+                      :min="1"></el-input-number>
                     <span class="per-unit"></span>
                     (单位：{{item.perUnit}})
                   </div>
@@ -63,16 +76,16 @@
                 <span>小计：</span>
                 <strong>{{child.specifications[child.specificationVal].price*child.buyCount}}</strong>
               </div>
-              <el-button
-                type="primary"
+              <el-button type="primary"
                 icon="el-icon-plus"
-                @click="openDialog('ordersList',child.label,child.thum,child.specifications[child.specificationVal].price,child.specifications[child.specificationVal].size,child.buyCount)"
-              >添加到购物车</el-button>
+                @click="openDialog('ordersList',child.label,child.thum,child.specifications[child.specificationVal].price,child.specifications[child.specificationVal].size,child.buyCount)">添加到购物车</el-button>
             </div>
           </el-tab-pane>
         </el-tabs>
         <div class="settlement">
-          <el-button type="primary" size="samll" @click="handleSettlement">去结算</el-button>
+          <el-button type="primary"
+            size="samll"
+            @click="handleSettlement">去结算</el-button>
         </div>
       </template>
     </white-box>
@@ -83,20 +96,23 @@
 </template>
 <script>
 import "./orders.styl";
-const WhiteBox = () => import("@/components/white-box/white-box");
-const MyTable = () => import("@/components/my-table/my-table");
+const WhiteBox = () => import("@/components/common/white-box/white-box");
+const MyTable = () => import("@/components/common/my-table/my-table");
+import MemberSelect from "@/components/member-select/member-select";
 import OrdersList from "./components/orders-list/orders-list";
 import { productAry } from "./data.js";
 export default {
   components: {
     WhiteBox,
     MyTable,
-    OrdersList
+    OrdersList,
+    MemberSelect
   },
   data() {
     return {
       activeName: "diapers",
-      productAry
+      productAry,
+      whetherMember: ''
     };
   },
   methods: {
@@ -111,6 +127,10 @@ export default {
       this.$router.push({
         name: "SettlementList"
       });
+    },
+    // 会员选择
+    ConfrimMember(member) {
+      console.log(member);
     }
   }
 };

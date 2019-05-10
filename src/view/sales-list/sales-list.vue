@@ -11,15 +11,20 @@
       :searchSelect="searchData.searchSelect"
       labelWidth="100px">
       <template slot="date-right">
-        <el-date-picker v-model="saleDate" size="mini"
+        <el-date-picker v-model="saleDate"
+          size="mini"
           type="daterange"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
           range-separator="至"></el-date-picker>
       </template>
       <template slot="customName-right">
-        <el-select v-model="customName">
-          <el-option label="张威" value="zhangwei"></el-option>
+        <el-select size="mini"
+          v-model="customName">
+          <el-option v-for="item in customOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"></el-option>
         </el-select>
       </template>
     </top-search>
@@ -50,8 +55,8 @@
 </template>
 
 <script>
-const WhiteBox = () => import("@/components/white-box/white-box");
-const MyTable = () => import("@/components/my-table/my-table");
+const WhiteBox = () => import("@/components/common/white-box/white-box");
+const MyTable = () => import("@/components/common/my-table/my-table");
 import TopSearch from '@/components/top-search-area/top-search-area'
 import AddSales from "./components/add-sale-dialog/add-sale-dialog";
 import SaleDetail from "./components/sale-detail-dialog/sale-detail-dialog";
@@ -130,8 +135,18 @@ export default {
           }
         ]
       },
-      saleDate:'',
-      customName:''
+      saleDate: '',
+      customName: '',
+      customOptions:[
+        {
+          label:'全部',
+          value:'all'
+        },
+        {
+          label:'张威',
+          value:'zhangwei'
+        }
+      ]
     };
   },
   methods: {

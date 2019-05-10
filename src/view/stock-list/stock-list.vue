@@ -16,7 +16,7 @@
 </template>
 
 <script>
-const WhiteBox = () => import('@/components/white-box/white-box')
+const WhiteBox = () => import('@/components/common/white-box/white-box')
 export default {
   name: "StockList",
   components: {

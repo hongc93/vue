@@ -45,8 +45,8 @@
 </template>
 
 <script>
-const WhiteBox = () => import('@/components/white-box/white-box')
-const MyTable = () => import('@/components/my-table/my-table')
+const WhiteBox = () => import('@/components/common/white-box/white-box')
+const MyTable = () => import('@/components/common/my-table/my-table')
 import AddCustom from './components/add-custom-dialog/add-custom-dialog'
 import { tableData } from './data.js'
 export default {

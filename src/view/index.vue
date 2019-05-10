@@ -29,9 +29,9 @@
 </template>
 
 <script>
-const LeftNav = () => import("@/components/left-nav/left-nav");
-const BackToTop = () => import("@/components/back-to-top/back-to-top");
-const ScrollBar = () => import("@/components/scroll-bar/scroll-bar");
+const LeftNav = () => import("@/components/common/left-nav/left-nav");
+const BackToTop = () => import("@/components/common/back-to-top/back-to-top");
+const ScrollBar = () => import("@/components/common/scroll-bar/scroll-bar");
 import { findIndex } from "lodash/array";
 export default {
   components: {
