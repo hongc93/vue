@@ -45,7 +45,7 @@ export const getMenu = () => {
       path: '/other-cost'
     },
     {
-      label: '出货单',
+      label: '出库单',
       icon: 'icon-chuhuo',
       name: 'SalesList',
       path: '/sales-list'

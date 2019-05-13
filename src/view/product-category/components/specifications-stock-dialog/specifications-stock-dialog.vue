@@ -46,7 +46,16 @@ export default {
         {
           prop: 'range',
           label: '适用范围',
-          align: 'center'
+          align: 'center',
+          headerRender: (h, params) => {
+            // let flag = false
+            // if (!params.row.range) {
+            //   flag = true
+            // }
+            // return (
+            //   <div></div>
+            // )
+          }
         },
         {
           prop: 'amount',
@@ -61,7 +70,7 @@ export default {
       ],
       tableData: [],
       productName: '',
-      totalStock:0
+      totalStock: 0
     }
   },
   methods: {
@@ -80,7 +89,7 @@ export default {
 <style lang="stylus">
 .specifications-stock
   .productName
-    font-size: 14px 
+    font-size: 14px
     font-weight: bold
     margin-bottom: 15px
     color: #333333

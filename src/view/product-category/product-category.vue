@@ -135,6 +135,8 @@ export default {
     // 格式化数据
     formatData(data, target, parent) {
       data.forEach((item, index) => {
+        console.log(1111);
+        console.log(item);
         target.push({
           series: item.label,
           value: item.value,

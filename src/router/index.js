@@ -47,7 +47,22 @@ const router = new Router({
         {
           path: 'income',
           name: 'Income',
-          component: () => import('@/view/income/income')
+          component: () => import('@/view/income/income'),
+          redirect: 'income/bill-follow',
+          children: [
+            {
+              path: 'bill-follow',
+              name: 'BillFollow',
+              component: () =>
+                import('@/view/income/components/bill-follow/bill-follow')
+            },
+            {
+              path: 'income-settle',
+              name: 'IncomeSettle',
+              component: () =>
+                import('@/view/income/components/income-settle/income-settle')
+            }
+          ]
         },
         {
           path: 'purchase-list',

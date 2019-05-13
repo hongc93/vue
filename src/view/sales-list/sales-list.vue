@@ -7,7 +7,7 @@
  */
 <template>
   <div class="sales-list">
-    <top-search :searchData="searchData.searchData"
+    <top-search :multiple="false" :searchData="searchData.searchData"
       :searchSelect="searchData.searchSelect"
       labelWidth="100px">
       <template slot="date-right">

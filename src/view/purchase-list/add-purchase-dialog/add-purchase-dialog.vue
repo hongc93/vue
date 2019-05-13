@@ -19,25 +19,34 @@
         label-width="120px">
         <el-form-item label="进货日期："
           prop="name">
-          <el-date-picker 
-            v-model="addPurchaseForm.date"
+          <el-date-picker v-model="addPurchaseForm.date"
             type="date"
             placeholder="选择日期"
             format="yyyy 年 MM 月 dd 日">
           </el-date-picker>
         </el-form-item>
         <el-form-item label="进货渠道：">
-          <el-input 
-            v-model="addPurchaseForm.channel"></el-input>
+          <el-input v-model="addPurchaseForm.channel"></el-input>
         </el-form-item>
-        <el-form-item label="产品：" prop="product">
+    
+        <el-form-item label="产品："
+          prop="product">
           <el-cascader :options="productSeries"
             v-model="addPurchaseForm.product">
           </el-cascader>
         </el-form-item>
+        <el-form-item label="规格："
+          prop="productSize">
+          <el-select v-model="addPurchaseForm.size" placeholder="请选择产品规格">
+            <el-option v-for="item in sizeOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="数量：">
           <el-input-number :min="1"
-            v-model="addPurchaseForm.count"></el-input-number><span>(单位：箱)</span>
+            v-model="addPurchaseForm.count"></el-input-number> <span>(单位：包)</span>
         </el-form-item>
         <el-button type="text">增加产品</el-button>
       </el-form>
@@ -65,15 +74,37 @@ export default {
       productSeries,
       addPurchaseForm: {
         date: '',
-        channel:'',
+        channel: '',
         product: [],
-        count: ''
+        count: '',
+        size: ''
       },
       addPurchaseRules: {
         product: [
           { required: true, message: '请选择产品', trigger: 'blur' },
+        ],
+        productSize: [
+          { required: true, message: '请选择产品规格', trigger: 'blur' },
         ]
       },
+      sizeOptions: [
+        {
+          label: 'S',
+          value: 'S'
+        },
+        {
+          label: 'M',
+          value: 'M'
+        },
+        {
+          label: 'L',
+          value: 'L'
+        },
+        {
+          label: 'XL',
+          value: 'XL'
+        }
+      ]
     }
   },
   methods: {
