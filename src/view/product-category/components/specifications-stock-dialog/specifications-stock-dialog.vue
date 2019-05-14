@@ -47,7 +47,7 @@ export default {
           prop: 'range',
           label: '适用范围',
           align: 'center',
-          headerRender: (h, params) => {
+          // headerRender: (h, params) => {
             // let flag = false
             // if (!params.row.range) {
             //   flag = true
@@ -55,7 +55,7 @@ export default {
             // return (
             //   <div></div>
             // )
-          }
+          // }
         },
         {
           prop: 'amount',

@@ -28,7 +28,7 @@
         <el-form-item label="进货渠道：">
           <el-input v-model="addPurchaseForm.channel"></el-input>
         </el-form-item>
-    
+
         <el-form-item label="产品："
           prop="product">
           <el-cascader :options="productSeries"
@@ -37,7 +37,8 @@
         </el-form-item>
         <el-form-item label="规格："
           prop="productSize">
-          <el-select v-model="addPurchaseForm.size" placeholder="请选择产品规格">
+          <el-select v-model="addPurchaseForm.size"
+            placeholder="请选择产品规格">
             <el-option v-for="item in sizeOptions"
               :key="item.value"
               :label="item.label"
@@ -46,7 +47,15 @@
         </el-form-item>
         <el-form-item label="数量：">
           <el-input-number :min="1"
-            v-model="addPurchaseForm.count"></el-input-number> <span>(单位：包)</span>
+            v-model="addPurchaseForm.count"></el-input-number>
+          <span>(单位：
+            <el-select style="width: 80px" v-model="addPurchaseForm.unit">
+              <el-option label="箱" value="box"></el-option>
+              <el-option label="包" value="package"></el-option>
+              <el-option label="瓶" value="bottle"></el-option>
+              <el-option label="盒" value="case"></el-option>
+            </el-select>
+            )</span>
         </el-form-item>
         <el-button type="text">增加产品</el-button>
       </el-form>
@@ -77,7 +86,8 @@ export default {
         channel: '',
         product: [],
         count: '',
-        size: ''
+        size: '',
+        unit:'box'
       },
       addPurchaseRules: {
         product: [
