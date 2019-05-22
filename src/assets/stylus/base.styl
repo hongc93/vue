@@ -289,6 +289,58 @@ html,body,#app
   animation-fill-mode: both
   animation-name: fadeUp
 
+//chart
+.chart-box
+  background: $color-white
+  .select
+    float right
+  .chart-content
+    position: relative
+  .chart-tool
+    line-height: 28px
+    overflow: hidden
+    position: relative
+    .tools-left
+      float: left
+    .tools
+      float: right
+    .chart-icon
+      color: $color-grey-1
+      cursor: pointer
+      padding: 0 5px
+    .cur-icon
+      color: $color-green
+  .chart-data-view
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background: #FFF
+    .table-view
+      position: absolute
+      left: 0
+      right: 0
+      top: 38px
+      bottom: 0
+    .view-top
+      line-height: 28px
+      margin-bottom: 10px
+      overflow: hidden
+      .title
+        font-size: 14px
+        font-weight: bold
+        float: left
+      .close-view
+        float: right
+  .subtext
+    font-size: 12px
+    color: $color-grey-1
+    padding-left: 24px
+  .chart-bottom
+    font-size: 12px
+    line-height: 24px
+
 //dialog弹出框
 .dialog-right
   // margin 0 50% !important

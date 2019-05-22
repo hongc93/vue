@@ -33,12 +33,13 @@ export default {
           },
           {
             prop: 'customName',
-            label: '客户编号',
+            label: '客户名称',
           },
           {
             prop: 'orderDate',
             label: '订单日期',
-            sortable: true
+            sortable: true,
+            minWidth:'120'
           },
           {
             prop: 'receivables',
@@ -57,7 +58,8 @@ export default {
           {
             prop: 'netProfit',
             label: '净利润',
-            sortable: true
+            sortable: true,
+            minWidth:'120'
           }
         ],
         data: [

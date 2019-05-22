@@ -984,3 +984,39 @@ export const productSeries = [
            ]
          }
        ]
+//图表颜色
+export const chartColor = [
+  '#F6C546',
+  '#CBE35A',
+  '#5DC8C3',
+  '#F0ACDC',
+  '#DC5A69',
+  '#EAA240',
+  '#ABC952',
+  '#3F88A4',
+  '#CC87F3',
+  '#A7406F',
+  '#DD6436',
+  '#409040',
+  '#2055D6',
+  '#9483F2',
+  '#793B6E',
+  '#D83D34',
+  '#286065',
+  '#1A1760',
+  '#575BB6',
+  '#65254F'
+]
+//图表的图例
+export const chartLegend = {
+  type: 'scroll',
+
+  right: 0,
+  orient: 'vertical',
+  formatter: function (name) {
+    return echarts.format.truncateText(name, 80, '14px Microsoft Yahei', '…');
+  },
+  tooltip: {
+    show: true
+  }
+}

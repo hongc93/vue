@@ -1,0 +1,58 @@
+.login
+  position: relative
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  background: url(login-bg.png) center center no-repeat
+  background-size: 100% 100%
+  .logo-area
+    position: absolute
+    top: 15px
+    left: 15px
+  .welcome
+    color: #ffffff
+    font-size: 24px
+    text-align: center
+    font-weight:500
+    margin-bottom: 50px
+  .form-area
+    .login-form
+      width: 500px
+      .el-input__inner
+        height: 45px !important
+        line-height: @height !important
+        border-radius: 0 !important
+        border: 0
+        border-bottom: 1px solid #fff
+        background: transparent
+        padding-left: 15px
+      .el-form-item
+        margin-bottom: 0 !important
+      .el-input__icon
+        line-height: 45px
+        font-size: 15px
+        color: #67c23a
+    .remember-pwd
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-top: 5px
+      .forgot-pass
+        color: #FFF
+        font-size: 14px
+        border-bottom: 1px solid #fff
+        &:hover
+          cursor: pointer
+      .el-checkbox__label
+        color: #FFF
+    .login-button
+      margin-top: 35px
+      text-align: center;
+      .el-button
+        width: 70%
+        padding: 14px 20px
+        font-size: 16px
+      .green-btn
+        background: #1d5b5d
+        border: 1px solid #1d5b5d

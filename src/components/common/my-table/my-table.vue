@@ -20,6 +20,7 @@
       <span class="arrow arrow-right icon-xiangyou"
         @click="arrowClick('right')"></span>
     </div>
+      
     <el-table ref="table"
       :data="data"
       size="mini"
@@ -53,7 +54,8 @@
         :col="item"
         :column-align="columnAlign"
         :key="index"
-        :show-overflow-tooltip="item.showOverflowTooltip !== undefined ? item.showOverflowTooltip : showOverflowTooltip"></my-column>
+        :show-overflow-tooltip="item.showOverflowTooltip !== undefined ? item.showOverflowTooltip : showOverflowTooltip">
+      </my-column>
       <el-table-column header-align="center"
         v-if="operation"
         :label="operationLabel?operationLabel:'操作'"
@@ -230,7 +232,8 @@ export default {
     indexMethod: {
       type: [String, Function]
     },
-    showOverflowTooltip: {
+    // td内容溢出时 弹出框
+    showOverflowTooltip: { 
       type: Boolean,
       default: false
     }

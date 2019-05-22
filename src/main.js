@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueWaypoint from 'vue-waypoint'
 import MyIcon from '@/components/common/my-icon/my-icon.vue'
 import './assets/stylus/index.styl'
 import './assets/js/element-import-config.js'
@@ -17,6 +18,7 @@ Vue.use(VueProgressBar,{
   autoFinish:false
 })
 Vue.use(MyIcon)
+Vue.use(VueWaypoint)
 Vue.component('my-icon',MyIcon)
 /* eslint-disable no-new */
 new Vue({

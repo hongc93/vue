@@ -1,6 +1,12 @@
 export const tableData = {
   col: [
     {
+      label: '订单编号',
+      prop: 'orderNum',
+      width: '120',
+      align: 'center'
+    },
+    {
       label: '客户名称',
       prop: 'customName',
       width: '120',
@@ -9,7 +15,7 @@ export const tableData = {
     {
       label: '地址',
       prop: 'address',
-      minWidth: '240',
+      minWidth: '300',
       align: 'left'
     },
     {
@@ -71,6 +77,7 @@ export const tableData = {
 
   data: [
     {
+      orderNum:'20190322001',
       customName: '孔祥玉',
       address: '北京市朝阳区东军庄13号楼2单元603',
       mobile: '18633137221',
@@ -83,6 +90,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: '刘琼',
       address: '湖南省桃江县灰山港镇向阳花小区58号',
       mobile: '15898494950',
@@ -94,6 +102,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: '张鑫',
       address: '山西省晋中市榆次区 新建北街 御景城市花园',
       mobile: '18635405567',
@@ -106,6 +115,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: '高文凤',
       address: '门头沟区永定镇冯村信园小区2号楼1单元302',
       mobile: '13693593352',
@@ -118,6 +128,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: ' 宋欢欢',
       address: '房山区长阳镇首开熙悦汇小区7号楼801',
       mobile: '17744458565',
@@ -130,6 +141,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: ' 刘月',
       address: '房山区良乡四合巷小区',
       mobile: '13810301604',
@@ -143,6 +155,7 @@ export const tableData = {
     },
 
     {
+      orderNum:'20190322001',
       customName: ' 付雷雷',
       address: '北京市房山区青龙湖镇坨里村南头',
       mobile: '13699149961',
@@ -155,6 +168,7 @@ export const tableData = {
       brithday: ''
     },
     {
+      orderNum:'20190322001',
       customName: ' 张晶',
       address: '北京市房山区良乡伊林郡二期6号楼303',
       mobile: '15600736088',

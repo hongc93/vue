@@ -6,6 +6,11 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
+      path: '/login',
+      name: 'Login',
+      component: () => import('@/view/login/login.vue')
+    },
+    {
       path: '',
       component: () => import('@/view/index'),
       children: [
