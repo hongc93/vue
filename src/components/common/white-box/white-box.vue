@@ -12,6 +12,7 @@
     <div class="box-content"
       :class="{'box-shadow':shadow}"
       :style="{'border-radius':borderRadius}">
+      <div>test</div>
       <div class="box-title"
         v-if="title">
         <div class="title"
