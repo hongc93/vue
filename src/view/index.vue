@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: ChenHong
+ * @Date: 2019-06-18 14:44:48
+ * @LastEditTime : 2020-01-06 08:04:23
+ * @LastEditors  : ChenHong
+ -->
 /*
  * Author: CC
  * Introduction: index.vue
@@ -7,7 +14,9 @@
  */
 <template>
   <el-container class="index-page">
-    <el-header>Header</el-header>
+    <el-header>
+      <top-head></top-head>
+    </el-header>
     <el-container>
       <el-aside class="aside">
         <scroll-bar>
@@ -29,12 +38,14 @@
 </template>
 
 <script>
+const TopHead =() => import("@/components/common/top-head/top-head")
 const LeftNav = () => import("@/components/common/left-nav/left-nav");
 const BackToTop = () => import("@/components/common/back-to-top/back-to-top");
 const ScrollBar = () => import("@/components/common/scroll-bar/scroll-bar");
 import { findIndex } from "lodash/array";
 export default {
   components: {
+    TopHead,
     LeftNav,
     BackToTop,
     ScrollBar
@@ -46,6 +57,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+header 
+  background: #333
 .index-page 
   position: absolute;
   padding: 0;

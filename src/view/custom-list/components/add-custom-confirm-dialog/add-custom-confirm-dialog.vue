@@ -133,6 +133,17 @@ export default {
     addBuyerConfirm() {
       this.dialogVisible = false
       this.$emit('addSuccess', false);
+      
+      console.log(this.tableData)
+      let addMember = this.tableData
+      this.$put('/member',addMember)
+        .then(res=>{
+          console.log("9999")
+          console.info(res)
+        })
+        .catch(err=>{
+          this.$message.err('查询失败')
+        })
     }
   }
 }

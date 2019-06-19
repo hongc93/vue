@@ -8,7 +8,8 @@
   <div class="login">
     <div class="login-main">
       <div class="welcome">
-        欢迎登录营销系统
+        <div><img :src="logo" /></div>
+        <p>欢迎登录凯儿得乐库存管理系统</p>
       </div>
       <div class="form-area">
         <div class="login-form">
@@ -17,18 +18,18 @@
             :rules="rules"
             :status-icon="true"
             :show-message="false">
-            <el-form-item prop="userName">
+            <el-form-item prop="login">
               <el-input placeholder="请输入手机号／邮箱"
                 prefix-icon="icon-user"
                 size="default"
-                v-model="loginData.userName">
+                v-model="loginData.login">
               </el-input>
             </el-form-item>
-            <el-form-item prop="passwd">
+            <el-form-item prop="pwd">
               <el-input placeholder="请输入密码"
                 size="default"
                 prefix-icon="icon-password"
-                v-model="loginData.passwd">
+                v-model="loginData.pwd">
               </el-input>
             </el-form-item>
           </el-form>
@@ -69,16 +70,16 @@ export default {
     return {
       logo: require('../../assets/img/logo.png'),
       loginData: {
-        userName: '',
-        passwd: ''
+        login: '',
+        pwd: ''
       },
       rules: {
-        userName: [
+        login: [
           {
-            required: true, message: '请输入手机号／邮箱'
+            required: true, message: '请输入用户名'
           }
         ],
-        passwd: [
+        pwd: [
           {
             validator: validatePass, trigger: 'blur'
           }
@@ -93,8 +94,8 @@ export default {
     submitLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          doLogin(this.loginData).then(res => {
-            this.saveUserInfo(res)
+          doLogin(this.loginData,'application/x-www-form-urlencoded').then(res => {
+            // this.saveUserInfo(res)
             const redirect = this.$route.query.redirect
             if (redirect) {
               this.$router.push(redirect)
